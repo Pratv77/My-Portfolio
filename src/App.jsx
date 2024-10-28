@@ -18,10 +18,14 @@ function App() {
           </Card>
         </div>
         <div class="col-span-2 md:col-span-4">
-          <Card><TechStackCard></TechStackCard></Card>
+          <Card>
+            <TechStackCard></TechStackCard>
+          </Card>
         </div>
         <div class="col-span-2 row-span-3 md:col-span-4 md:row-span-2">
-          <Card>Item 3</Card>
+          <Card>
+            <PratGPTCard></PratGPTCard>
+          </Card>
         </div>
         <div class="col-span-2 row-span-2">
           <Card>Item 4</Card>

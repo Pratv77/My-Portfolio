@@ -10,7 +10,7 @@ const MainProfileCard = () => {
   return (
     <div className="h-full grid grid-cols-2 grid-rows-2 cursor-default">
       <div className="row-span-1 grid place-content-center">
-        <img className="w-[200px] p-2" src={profileImage} />
+        <img className="w-[200px] p-2 transform transition-transform duration-300 hover:scale-110 ease-in-out" src={profileImage} />
       </div>
       <div className="row-span-1 text-white grid place-content-center p-2">
         <p className="text-md text-gray-500">Age</p>
