@@ -24,8 +24,8 @@ const TechStackCard = () => {
       className="h-full grid grid-cols-2 bg-blue-500/50 rounded-lg cursor-default"
     >
       <div className="grid grid-rows-4">
-        <p className="text-white/70 text-4xl font-bold mt-2 text-center">Software</p>
-        <div className="row-span-3 pl-12 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
+        <p className="text-white/70 text-3xl sm:text-4xl font-bold mt-2 text-center">Software</p>
+        <div className="row-span-3 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
           <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
             <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={ArcBrowswerLogo} />
             <p className="hidden sm:block lg:hidden xl:block text-md font-bold text-white/70 m-auto ml-2">Arc Browser</p>
@@ -53,8 +53,8 @@ const TechStackCard = () => {
         </div>
       </div>
       <div className="grid grid-rows-4">
-        <p className="text-white/70 text-4xl font-bold mt-2 text-center">Tech Stack</p>
-        <div className="row-span-3 pl-12 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
+        <p className="text-white/70 text-3xl sm:text-4xl font-bold mt-2 text-center">Tech Stack</p>
+        <div className="row-span-3 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
           <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
             <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={HTMLLogo} />
             <p className="hidden sm:block lg:hidden xl:block text-md font-bold text-white/70 m-auto ml-2">HTML</p>
