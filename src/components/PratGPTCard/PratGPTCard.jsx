@@ -4,12 +4,11 @@ import profilePicture from "../../assets/ProfileP.png";
 
 const PratGPTCard = () => {
   return (
-    <div className="h-full rounded-lg">
-      {/* Ensures the card matches your dark theme */}
+    <div className="h-full rounded-lg relative">
       <div className="flex flex-col rounded-lg max-w-full h-full overflow-hidden">
         {/* Inner Container for Chat UI */}
         <div className="flex flex-col h-[100%] bg-black/70 rounded-lg overflow-hidden">
-          <div className="flex items-center p-4 bg-neutral-950 text-white">
+          <div className="flex items-center p-4 bg-black/60 rounded-t-lg text-white absolute top-0 left-0 right-0 backdrop-blur-md">
             <div className="relative">
               <img
                 src={profilePicture}
@@ -27,9 +26,9 @@ const PratGPTCard = () => {
           <div className="flex-grow p-4 overflow-y-auto">
             {/* Chat messages */}
             {/* Message 1 */}
-            <div className="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+            <div className="flex w-full mt-2 pt-20 space-x-3 max-w-xs ml-auto justify-end">
               <div>
-                <div className="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+                <div className="bg-blue-600 text-white p-4 rounded-l-lg rounded-br-lg">
                   <p className="text-md">Hey, what are you supposed to be?</p>
                 </div>
                 <span className="text-xs text-gray-500 leading-none">
