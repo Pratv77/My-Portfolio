@@ -10,10 +10,12 @@ import Card from "./components/Card";
 
 function App() {
   return (
-    <div className="min-h-screen p-8 grid place-items-center">
-      <div class="w-full max-w-screen-2xl grid auto-rows-[225px] grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+    <div className="min-h-screen p-4 grid place-items-center">
+      <div class="w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
         <div class="col-span-2 row-span-2 md:col-span-4">
-          <Card>Item 1</Card>
+          <Card>
+            <MainProfileCard></MainProfileCard>
+          </Card>
         </div>
         <div class="col-span-2 md:col-span-4">
           <Card>Item 2</Card>
