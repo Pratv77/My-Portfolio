@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         'bai-jamjuree': ['Bai Jamjuree', 'sans-serif'],
+        'cabin-sketch': ['"Cabin Sketch"', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

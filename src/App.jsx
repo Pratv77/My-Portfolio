@@ -37,7 +37,7 @@ function App() {
           <Card><SpotifyCard></SpotifyCard></Card>
         </div>
         <div class="col-span-2 md:col-span-2">
-          <Card>Item 7</Card>
+          <Card><ContactCard></ContactCard></Card>
         </div>
       </div>
     </div>
