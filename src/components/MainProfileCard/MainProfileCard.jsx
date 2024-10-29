@@ -12,7 +12,7 @@ const MainProfileCard = () => {
       <div className="row-span-1 grid place-content-center">
         <img className="w-[200px] p-2 transform transition-transform duration-300 hover:scale-110 ease-in-out" src={profileImage} />
       </div>
-      <div className="row-span-1 text-white grid place-content-center p-2">
+      <div className="row-span-1 text-white grid place-content-center p-2 mt-4">
         <p className="text-md text-gray-500">Age</p>
         <p className="text-lg text-gray-300 font-bold">
           {ageText}
