@@ -51,32 +51,7 @@ const PratGPTCard = () => {
                 </span>
               </div>
             </div>
-            {/* Message 3 */}
-            <div className="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
-              <div>
-                <div className="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
-                  <p className="text-md">
-                    Oh okay, so when's Pratham's birthday?
-                  </p>
-                </div>
-                <span className="text-xs text-gray-500 leading-none">
-                  2 min ago
-                </span>
-              </div>
-            </div>
-            {/* Message 4 */}
-            <div className="flex w-full mt-2 space-x-3 max-w-xs">
-              <div>
-                <div className="bg-neutral-800 p-3 rounded-r-lg rounded-bl-lg">
-                  <p className="text-md text-white">
-                    Pratham's birthday is on July 2nd, 2002.
-                  </p>
-                </div>
-                <span className="text-xs text-gray-500 leading-none">
-                  2 min ago
-                </span>
-              </div>
-            </div>
+            
             {/* Add additional messages as needed */}
           </div>
           {/* Input Section */}

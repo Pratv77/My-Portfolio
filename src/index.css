@@ -4,8 +4,7 @@
 
 @layer base {
   body {
-    background-image: url("./assets/otis-redding.png");
-    @apply bg-black bg-repeat;
+    background-color: black;
   }
 }
 
