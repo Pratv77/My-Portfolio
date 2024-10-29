@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        'bai-jamjuree': ['Bai Jamjuree', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
