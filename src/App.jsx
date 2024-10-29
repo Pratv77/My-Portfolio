@@ -28,10 +28,10 @@ function App() {
           </Card>
         </div>
         <div class="col-span-2 row-span-2">
-          <Card>Item 4</Card>
+          <Card><PhotoGalleryCard></PhotoGalleryCard></Card>
         </div>
         <div class="col-span-2 row-span-2">
-          <Card>Item 5</Card>
+          <Card><MainProjectCard></MainProjectCard></Card>
         </div>
         <div class="col-span-2 md:col-span-2">
           <Card><SpotifyCard></SpotifyCard></Card>

@@ -1,9 +1,9 @@
 import React from "react";
+import "../../App.css";
 
 const MainProjectCard = () => {
   return (
-    <div className="bg-neutral-800 h-full">
-        <p className="text-gray-100">Main Project Card</p>
+    <div className="animated-background h-full w-full rounded-lg bg-gradient-to-r from-blue-500 via-blue-500 to-indigo-500">
     </div>
   );
 };
