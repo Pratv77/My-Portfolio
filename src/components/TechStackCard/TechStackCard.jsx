@@ -23,7 +23,7 @@ const TechStackCard = () => {
       className="h-full grid grid-cols-2 bg-stone-950 rounded-lg cursor-default font-bai-jamjuree"
     >
       <div className="grid grid-rows-4">
-        <p className="text-white/70 text-3xl sm:text-4xl font-bold mt-2 text-center">Software</p>
+        <p className="text-white/70 text-3xl sm:text-4xl font-semibold mt-2 text-center">Software</p>
         <div className="row-span-3 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
           <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
             <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={ArcBrowswerLogo} />
