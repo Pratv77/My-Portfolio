@@ -6,7 +6,7 @@ const SpotifyCard = () => {
   return (
     <div
       style={{ backgroundImage: `url(${background})` }}
-      className="h-full grid rounded-lg border border-white/25 bg-transparent transition-colors duration-300 hover:bg-gray-900"
+      className="h-full grid rounded-lg border border-white/25 bg-transparent transition-colors duration-300 hover:bg-white/10"
     >
       <div className="grid place-content-center grid-cols-3 grid-rows-3 lg:grid-rows-2 p-2 ml-2 font-montserrat">
         <div className="col-span-1 grid place-content-start p-4">
