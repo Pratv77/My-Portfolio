@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import githubLogo from "../../assets/github.png";
+import discordLogo from "../../assets/discord.png";
+import xLogo from "../../assets/x.png";
+import linkedinLogo from "../../assets/linkedin.png";
 
 function throttle(func, delay) {
   let lastCall = 0;
@@ -22,8 +26,8 @@ const TiltCard = ({ imageSrc, description, bgColor }) => {
     const y = e.clientY - box.top;
     const centerX = box.width / 2;
     const centerY = box.height / 2;
-    const rotateX = (y - centerY) / 7;
-    const rotateY = (centerX - x) / 7;
+    const rotateX = (y - centerX) / 3.5;
+    const rotateY = (centerY - x) / 3.5;
 
     setRotate({ x: rotateX, y: rotateY });
   }, 100);
@@ -34,7 +38,7 @@ const TiltCard = ({ imageSrc, description, bgColor }) => {
 
   return (
     <div
-      className="p-4"
+      className="p-1"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{
@@ -48,8 +52,13 @@ const TiltCard = ({ imageSrc, description, bgColor }) => {
       >
         <div className="relative flex h-full w-full select-none items-center justify-center rounded-lg text-sm font-light text-slate-300">
           <div className="text-center">
-            <img src={imageSrc} alt={description} className="w-12 h-12 mx-auto mb-2" />
-            <p className="text-xs mt-1">{description}</p>
+            <img
+              src={imageSrc}
+              alt={description}
+              className="mx-auto mb-2 object-contain"
+              style={{ width: "92px", height: "92px" }}
+            />
+            <p className="text-xs md:text-sm mt-1">{description}</p>
           </div>
         </div>
       </div>
@@ -59,30 +68,29 @@ const TiltCard = ({ imageSrc, description, bgColor }) => {
 
 const PhotoGalleryCard = () => {
   return (
-    <div className="grid grid-rows-2 grid-cols-2 h-full w-full gap-0">
-      {/* Each card is fully independent and customizable */}
+    <div className="grid grid-rows-2 grid-cols-2 h-full w-full gap-0 rounded-lg animated-background bg-gradient-to-r from-slate-800 via-black to-slate-800">
       <TiltCard 
-        imageSrc="../../assets/github.png" 
+        imageSrc={githubLogo} 
         description="GitHub" 
-        bgColor="#333" // Dark gray for GitHub
+        bgColor="#333"
       />
 
       <TiltCard 
-        imageSrc="/path/to/discord_logo.png" 
+        imageSrc={discordLogo}
         description="Discord" 
-        bgColor="#7289DA" // Discord blue
+        bgColor="#7289da"
       />
 
       <TiltCard 
-        imageSrc="/path/to/twitter_logo.png" 
+        imageSrc={xLogo} 
         description="Twitter" 
-        bgColor="#1DA1F2" // Twitter blue
+        bgColor="black"
       />
 
       <TiltCard 
-        imageSrc="/path/to/linkedin_logo.png" 
+        imageSrc={linkedinLogo} 
         description="LinkedIn" 
-        bgColor="#0077B5" // LinkedIn blue
+        bgColor="#0a66c2"
       />
     </div>
   );
