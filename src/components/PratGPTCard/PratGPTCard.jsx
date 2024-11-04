@@ -4,7 +4,7 @@ import profilePicture from "../../assets/ProfileP.png";
 
 const PratGPTCard = () => {
   return (
-    <div className="h-full rounded-lg relative">
+    <div className="h-full rounded-lg relative border border-white/25">
       <div className="flex flex-col rounded-lg max-w-full h-full overflow-hidden">
         {/* Inner Container for Chat UI */}
         <div className="flex flex-col h-[100%] bg-black/70 rounded-lg overflow-hidden">

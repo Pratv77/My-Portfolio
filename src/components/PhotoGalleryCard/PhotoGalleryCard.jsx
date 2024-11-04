@@ -47,7 +47,7 @@ const TiltCard = ({ imageSrc, description, bgColor }) => {
       }}
     >
       <div
-        className="relative h-full w-full rounded-xl transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform"
+        className="relative h-full w-full rounded-xl transition-[all_400ms_cubic-bezier(0.03,0.98,0.52,0.99)_0s] will-change-transform border border-white/25"
         style={{ backgroundColor: bgColor }}
       >
         <div className="relative flex h-full w-full select-none items-center justify-center rounded-lg text-sm font-light text-slate-300">
@@ -68,7 +68,7 @@ const TiltCard = ({ imageSrc, description, bgColor }) => {
 
 const PhotoGalleryCard = () => {
   return (
-    <div className="grid grid-rows-2 grid-cols-2 h-full w-full gap-0 rounded-lg animated-background bg-gradient-to-r from-slate-800 via-black to-slate-800">
+    <div className="grid grid-rows-2 grid-cols-2 h-full w-full gap-0">
       <TiltCard 
         imageSrc={githubLogo} 
         description="GitHub" 

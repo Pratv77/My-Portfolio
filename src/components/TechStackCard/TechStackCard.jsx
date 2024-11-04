@@ -20,7 +20,7 @@ const TechStackCard = () => {
   return (
     <div
       style={{ backgroundImage: `url(${background})` }}
-      className="h-full grid grid-cols-2 bg-stone-950 rounded-lg cursor-default font-bai-jamjuree"
+      className="h-full grid grid-cols-2 bg-stone-950 rounded-lg cursor-default font-bai-jamjuree border border-white/25"
     >
       <div className="grid grid-rows-4">
         <p className="text-white/70 text-3xl sm:text-4xl font-semibold mt-2 text-center">Software</p>
