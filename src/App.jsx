@@ -11,32 +11,32 @@ import Card from "./components/Card";
 function App() {
   return (
     <div className="min-h-screen p-4 grid place-items-center">
-      <div class="w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-        <div class="col-span-2 row-span-2 md:col-span-4">
+      <div className="w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+        <div className="col-span-2 row-span-2 md:col-span-4">
           <Card>
             <MainProfileCard></MainProfileCard>
           </Card>
         </div>
-        <div class="col-span-2 md:col-span-4">
+        <div className="col-span-2 md:col-span-4">
           <Card>
             <TechStackCard></TechStackCard>
           </Card>
         </div>
-        <div class="col-span-2 row-span-3 md:col-span-4 md:row-span-2">
+        <div className="col-span-2 row-span-3 md:col-span-4 md:row-span-2">
           <Card>
             <PratGPTCard></PratGPTCard>
           </Card>
         </div>
-        <div class="col-span-2 row-span-2">
+        <div className="col-span-2 row-span-2">
           <Card><PhotoGalleryCard></PhotoGalleryCard></Card>
         </div>
-        <div class="col-span-2 row-span-2">
+        <div className="col-span-2 row-span-2">
           <Card><MainProjectCard></MainProjectCard></Card>
         </div>
-        <div class="col-span-2 md:col-span-2">
+        <div className="col-span-2 md:col-span-2">
           <Card><SpotifyCard></SpotifyCard></Card>
         </div>
-        <div class="col-span-2 md:col-span-2">
+        <div className="col-span-2 md:col-span-2">
           <Card><ContactCard></ContactCard></Card>
         </div>
       </div>

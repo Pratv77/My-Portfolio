@@ -62,7 +62,7 @@ const PhotoGalleryCard = () => {
     <div className="grid grid-rows-2 grid-cols-2 h-full w-full gap-0">
       {/* Each card is fully independent and customizable */}
       <TiltCard 
-        imageSrc="/path/to/github_logo.png" 
+        imageSrc="../../assets/github.png" 
         description="GitHub" 
         bgColor="#333" // Dark gray for GitHub
       />

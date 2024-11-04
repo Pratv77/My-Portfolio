@@ -8,7 +8,7 @@ const SpotifyCard = () => {
       style={{ backgroundImage: `url(${background})` }}
       className="h-full grid rounded-lg"
     >
-      <div className="grid place-content-center  grid-cols-3 grid-rows-3 lg:grid-rows-2 p-2 ml-2 font-montserrat">
+      <div className="grid place-content-center grid-cols-3 grid-rows-3 lg:grid-rows-2 p-2 ml-2 font-montserrat">
         <div className="col-span-1 grid place-content-start p-4">
           <img src={spotifyLogo} className="w-12" />
         </div>
@@ -33,7 +33,7 @@ const SpotifyCard = () => {
           </div>
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes bar {
           0%,
           100% {
