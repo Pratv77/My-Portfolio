@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import spotifyLogo from "../../assets/spotify.png";
 import background from "../../assets/football-no-lines.png";
 
@@ -10,7 +10,7 @@ const SpotifyCard = () => {
     >
       <div className="grid place-content-center grid-cols-3 grid-rows-3 lg:grid-rows-2 p-2 ml-2 font-montserrat">
         <div className="col-span-1 grid place-content-start p-4">
-          <img src={spotifyLogo} className="w-12" />
+          <img src={spotifyLogo} className="w-12" alt="Spotify Logo" />
         </div>
 
         <div className="text-white text-xl ml-4 col-span-3 row-start-2">
@@ -45,7 +45,7 @@ const SpotifyCard = () => {
         }
         .animate-bar {
           animation: bar 1s infinite ease-in-out;
-          transform-origin: center; /* Change transform-origin to center */
+          transform-origin: center;
         }
         .delay-75 {
           animation-delay: 0.15s;
