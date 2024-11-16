@@ -19,8 +19,8 @@ const MainProfileCard = () => {
         </p>
         <p className="text-md text-gray-500">Location</p>
         <p className="text-lg text-gray-300 font-bold">Toronto, Canada</p>
-        <p className="text-md text-gray-500">League of Legends Rank</p>
-        <p className="text-lg text-gray-300 font-bold">240 LP Masters</p>
+        <p className="text-md text-gray-500">Institution</p>
+        <p className="text-lg text-gray-300 font-bold">University of Toronto</p>
       </div>
       <div className="col-span-2">
         <p className="text-gray-500 text-xl sm:text-2xl px-12 mt-2 lg:px-14 2xl:ml-8">
