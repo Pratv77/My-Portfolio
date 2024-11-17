@@ -19,7 +19,7 @@ const MainProfileCard = () => {
         </p>
         <p className="text-md text-gray-500">Location</p>
         <p className="text-lg text-gray-300 font-bold">Toronto, Canada</p>
-        <p className="text-md text-gray-500">Institution</p>
+        <p className="text-md text-gray-500">Education</p>
         <p className="text-lg text-gray-300 font-bold">University of Toronto</p>
       </div>
       <div className="col-span-2">
