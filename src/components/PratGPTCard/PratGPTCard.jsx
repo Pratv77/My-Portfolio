@@ -29,7 +29,7 @@ const PratGPTCard = () => {
             <div className="flex w-full mt-2 pt-20 space-x-3 max-w-xs ml-auto justify-end">
               <div>
                 <div className="bg-blue-600 text-white p-4 rounded-l-lg rounded-br-lg">
-                  <p className="text-md">Hey, what are you supposed to be?</p>
+                  <p className="text-md">What's your purpose here?</p>
                 </div>
                 <span className="text-xs text-gray-500 leading-none">
                   2 min ago
@@ -41,9 +41,9 @@ const PratGPTCard = () => {
               <div>
                 <div className="bg-neutral-800 p-3 rounded-r-lg rounded-bl-lg">
                   <p className="text-md text-white">
-                    Hey! I'm PratGPT, Pratham's assistant. I'm here to answer
-                    any questions you have about him, things on the site, or
-                    just chat if you'd like!
+                    Hey! I'm here to help you explore Pratham's portfolio! I can
+                    answer questions about his skills, projects, and even guide
+                    you through his work. Ask me anything!
                   </p>
                 </div>
                 <span className="text-xs text-gray-500 leading-none">
@@ -51,32 +51,6 @@ const PratGPTCard = () => {
                 </span>
               </div>
             </div>
-            {/* Message 3 */}
-            <div className="flex w-full mt-2 pt-20 space-x-3 max-w-xs ml-auto justify-end">
-              <div>
-                <div className="bg-blue-600 text-white p-4 rounded-l-lg rounded-br-lg">
-                  <p className="text-md">Alright, so when's Pratham's birthday?</p>
-                </div>
-                <span className="text-xs text-gray-500 leading-none">
-                  2 min ago
-                </span>
-              </div>
-            </div>
-            {/* Message 4 */}
-            <div className="flex w-full mt-2 space-x-3 max-w-xs">
-              <div>
-                <div className="bg-neutral-800 p-3 rounded-r-lg rounded-bl-lg">
-                  <p className="text-md text-white">
-                    His birthday is on July 2nd, 2002!
-                  </p>
-                </div>
-                <span className="text-xs text-gray-500 leading-none">
-                  2 min ago
-                </span>
-              </div>
-            </div>
-            
-            {/* Add additional messages as needed */}
           </div>
           {/* Input Section */}
           <div className="p-4">
