@@ -8,23 +8,15 @@ const SpotifyCard = () => {
   useEffect(() => {
     const fetchTrack = async () => {
       try {
-        const response = await fetch(
-          "https://api.spotify.com/v1/me/player/currently-playing",
-          {
-            headers: {
-              Authorization: `Bearer BQAE0QRkKYiQWYCrib2w6sqzGFDUXL9uZJgjMequqSWXsKTv9ZXUW-XYx-IsH6hORQlk5S6ysKxoYkkhMtl-DOn1R3xO6JYOUDzMVyXgYgjHQlB97iF7UwJeZsLp69lspI2Lp9ivoMKGrhOFegz2g_F2SDJBaOfY9zw9eaUpYj7v9epM9vrg2QcsnODygyE`, // Replace with your actual token
-            },
-          }
-        );
-
-        if (response.status === 204) {
-          setTrack(null); // No track playing
-          return;
-        }
-
+        const response = await fetch('http://your-backend-domain.com/api/spotify/now-playing');
+    
         if (response.ok) {
           const data = await response.json();
-          setTrack(data.item); // Update track if playing
+          if (data.isPlaying) {
+            setTrack({ name: data.title, artist: data.artist });
+          } else {
+            setTrack(null);
+          }
         } else {
           console.error("Failed to fetch currently playing song");
         }
