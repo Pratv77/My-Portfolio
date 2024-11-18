@@ -8,7 +8,7 @@ const SpotifyCard = () => {
   useEffect(() => {
     const fetchTrack = async () => {
       try {
-        const response = await fetch('http://your-backend-domain.com/api/spotify/now-playing');
+        const response = await fetch('http://localhost:3001/api/spotify/now-playing');
     
         if (response.ok) {
           const data = await response.json();
