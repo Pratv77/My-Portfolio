@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist', // Default build directory
-    assetsDir: 'assets', // Ensure static assets like JS and CSS are under this folder
+    outDir: 'dist',
+    assetsDir: 'assets',
   },
 });
