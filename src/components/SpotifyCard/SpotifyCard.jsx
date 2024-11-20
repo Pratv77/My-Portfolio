@@ -3,35 +3,6 @@ import spotifyLogo from "../../assets/spotify.png";
 import background from "../../assets/football-no-lines.png";
 
 const SpotifyCard = () => {
-  const [track, setTrack] = useState(null);
-
-  useEffect(() => {
-    const fetchTrack = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/spotify/now-playing');
-    
-        if (response.ok) {
-          const data = await response.json();
-          if (data.isPlaying) {
-            setTrack({ name: data.title, artist: data.artist });
-          } else {
-            setTrack(null);
-          }
-        } else {
-          console.error("Failed to fetch currently playing song");
-        }
-      } catch (error) {
-        console.error("Error fetching track:", error);
-      }
-    };
-
-    // Poll every 10 seconds
-    const intervalId = setInterval(fetchTrack, 10000);
-    fetchTrack(); // Fetch initially
-
-    return () => clearInterval(intervalId); // Cleanup interval
-  }, []);
-
   return (
     <div
       style={{ backgroundImage: `url(${background})` }}
@@ -43,16 +14,13 @@ const SpotifyCard = () => {
         </div>
 
         <div className="text-white text-xl ml-4 col-span-3 row-start-2">
-          {track && (
-            <>
-              <p className="text-2xl font-semibold overflow-x-auto whitespace-nowrap w-[300px]">
-                {track.name}
-              </p>
-              <p className="text-gray-500 font-semibold text-lg overflow-x-auto whitespace-nowrap w-[300px]">
-                {track.artists[0].name}
-              </p>
-            </>
-          )}
+          <p className="text-2xl font-semibold overflow-x-auto whitespace-nowrap w-[300px]">
+            Streatham
+          </p>
+          <p className="text-gray-500 font-semibold text-lg overflow-x-auto whitespace-nowrap w-[300px]">
+            Dave
+          </p>
+
           <div className="flex items-center">
             <div className="flex items-center justify-center mr-2 space-x-1">
               <div className="bar h-5 w-1 bg-green-500 animate-bar rounded-full"></div>
@@ -61,7 +29,7 @@ const SpotifyCard = () => {
               <div className="bar h-5 w-1 bg-green-500 animate-bar delay-300 rounded-full"></div>
             </div>
             <p className="text-green-500 text-lg lg:text-base xl:text-lg">
-              {track ? "Currently Listening" : "Currently Offline"}
+              Currently Listening
             </p>
           </div>
         </div>
