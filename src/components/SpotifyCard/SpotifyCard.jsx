@@ -14,10 +14,10 @@ const SpotifyCard = () => {
         </div>
 
         <div className="text-white text-xl ml-4 col-span-3 row-start-2">
-          <p className="text-2xl font-semibold overflow-x-auto whitespace-nowrap w-[300px]">
+          <p className="text-2xl font-semibold overflow-x-auto whitespace-nowrap w-11/12">
             Streatham
           </p>
-          <p className="text-gray-500 font-semibold text-lg overflow-x-auto whitespace-nowrap w-[300px]">
+          <p className="text-gray-500 font-semibold text-lg overflow-x-auto whitespace-nowrap w-11/12">
             Dave
           </p>
 
