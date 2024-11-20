@@ -7,7 +7,7 @@ import notion from "../../assets/Tech Stack Logos/Notion.png";
 import github from "../../assets/Tech Stack Logos/Github.png";
 import photoshop from "../../assets/Tech Stack Logos/Photoshop.png";
 //Tech Stack Logos
-import HTMLLogo from "../../assets/Tech Stack Logos/HTML.png";
+import ViteLogo from "../../assets/Tech Stack Logos/Vite.png";
 import TailwindLogo from "../../assets/Tech Stack Logos/Tailwind.png";
 import JavaScriptLogo from "../../assets/Tech Stack Logos/Javascript.png";
 import ReactLogo from "../../assets/Tech Stack Logos/React.png";
@@ -55,8 +55,8 @@ const TechStackCard = () => {
         <p className="text-white/70 text-3xl sm:text-4xl font-semibold mt-2 text-center">Tech Stack</p>
         <div className="row-span-3 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
           <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
-            <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={HTMLLogo} />
-            <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">HTML</p>
+            <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={ViteLogo} />
+            <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">Vite</p>
           </div>
           <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
             <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={TailwindLogo} />
