@@ -16,16 +16,17 @@ function App() {
 
   const handleLeaveMessageClick = () => {
     setShowOverlay(true);
-    setTimeout(() => setFadeCard(true), 10);
+    setTimeout(() => setFadeCard(true), 10); // Add slight delay for fade-in effect
   };
 
   const handleClose = () => {
     setFadeCard(false);
-    setTimeout(() => setShowOverlay(false), 500);
+    setTimeout(() => setShowOverlay(false), 500); // Allow fade-out animation before closing overlay
   };
 
   return (
     <div className="relative min-h-screen p-4 grid place-items-center">
+      {/* Main Content Grid */}
       <div
         className={`w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 transition-all duration-500 ${
           showOverlay ? "blur-sm pointer-events-none opacity-50" : "opacity-100"
@@ -68,16 +69,17 @@ function App() {
         </div>
       </div>
 
+      {/* Overlay */}
       {showOverlay && (
         <div
           className="fixed inset-0 z-10 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-500"
-          onClick={handleClose}
+          onClick={handleClose} // Clicking outside the modal closes it
         >
           <div
-            className={`relative bg-white rounded-lg shadow-lg w-11/12 max-w-xl h-[90%] sm:h-[80%] sm:w-11/12 md:w-[500px] lg:w-[600px] lg:h-[500px] p-6 transition-all duration-500 ${
+            className={`relative bg-black border border-gray-500 rounded-lg shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden transition-all duration-500 ${
               fadeCard ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} // Prevent clicking inside from closing
           >
             <button
               onClick={handleClose}
@@ -85,9 +87,78 @@ function App() {
             >
               ×
             </button>
-            {/* Card Content */}
-            <div className="flex items-center justify-center text-gray-500 text-2xl">
-              New Content Here
+            {/* Modal Content */}
+            <div className="flex flex-col h-auto max-h-[80vh] overflow-y-auto">
+              <div className="p-6">
+                <h2 className="text-xl lg:text-2xl font-bold mb-2 text-center text-white">
+                  Let's have a chat!
+                </h2>
+                <p className="text-sm lg:text-base text-gray-400 mb-6 text-center">
+                  I'm currently open to new opportunities, I'd love to hear from
+                  you!
+                </p>
+                <form
+                  action="mailto:contact@prathamvijh.com"
+                  method="POST"
+                  encType="text/plain"
+                  className="space-y-4"
+                >
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm text-gray-200 mb-1"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Enter your name"
+                      className="w-full border-b border-gray-500 bg-transparent text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm text-gray-200 mb-1"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      placeholder="Enter your email"
+                      className="w-full border-b border-gray-500 bg-transparent text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm text-gray-200 mb-1"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      required
+                      placeholder="Type your message here"
+                      className="w-full border-b border-gray-500 bg-transparent text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 resize-none"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+                  >
+                    Send it my way!
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
