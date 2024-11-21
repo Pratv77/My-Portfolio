@@ -3,7 +3,6 @@ import profileImage from "../../assets/Memoji_1.png";
 import { calculateAge } from "./calculateAge";
 
 const MainProfileCard = () => {
-// Custom Birthday
   const birthDate = new Date("2002-07-02");
   const ageText = calculateAge(birthDate);
 

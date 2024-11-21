@@ -3,7 +3,7 @@ import MainProfileCard from "./components/MainProfileCard/MainProfileCard";
 import TechStackCard from "./components/TechStackCard/TechStackCard";
 import PratGPTCard from "./components/PratGPTCard/PratGPTCard";
 import MainProjectCard from "./components/MainProjectCard/MainProjectCard";
-import PhotoGalleryCard from "./components/PhotoGalleryCard/PhotoGalleryCard";
+import SocialsCard from "./components/SocialsCard/SocialsCard";
 import ContactCard from "./components/ContactCard/ContactCard";
 import GIFCard from "./components/GIFCard/GifCard";
 
@@ -29,7 +29,7 @@ function App() {
           </Card>
         </div>
         <div className="col-span-2 row-span-2">
-          <Card><PhotoGalleryCard></PhotoGalleryCard></Card>
+          <Card><SocialsCard></SocialsCard></Card>
         </div>
         <div className="col-span-2 row-span-2">
           <Card><MainProjectCard></MainProjectCard></Card>
