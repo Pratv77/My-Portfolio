@@ -1,8 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import OpenAI from "openai";
 import sendIcon from "../../assets/send.png";
 import profilePicture from "../../assets/ProfileP.png";
 
+// Rate limiting constants
+const RATE_LIMIT = {
+  MAX_MESSAGES: 25,    // Maximum messages per time window
+  TIME_WINDOW: 3600000, // Time window in milliseconds (1 hour)
+  MIN_DELAY: 1000,     // Minimum delay between messages (1 second)
+};
+
+const ERROR_MESSAGES = {
+  RATE_LIMIT: "You've sent too many messages. Please wait a while before trying again.",
+  SPAM: "Please wait a moment before sending another message.",
+  API_ERROR: "I'm having trouble connecting right now. Please try again in a moment.",
+  INITIALIZATION: "I'm still initializing. Please try again in a few seconds.",
+  INVALID_INPUT: "I couldn't process that message. Please try something else.",
+};
+
+// Components remain the same as before
 const TypingIndicator = () => (
   <div className="flex w-full mt-2 space-x-3 max-w-xs animate-fade-in">
     <div>
@@ -64,51 +80,110 @@ const PratGPTCard = () => {
   const [assistant, setAssistant] = useState(null);
   const [thread, setThread] = useState(null);
   const [openaiClient, setOpenaiClient] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false);
   const messagesEndRef = useRef(null);
+  const lastMessageTime = useRef(Date.now());
+  const messageCount = useRef(0);
+  const messageHistory = useRef([]);
 
-  const scrollToBottom = () => {
+  // Rate limiting check
+  const checkRateLimit = useCallback(() => {
+    const now = Date.now();
+    const timeWindow = now - RATE_LIMIT.TIME_WINDOW;
+    
+    // Clean up old messages
+    messageHistory.current = messageHistory.current.filter(time => time > timeWindow);
+    
+    // Check if we're over the limit
+    if (messageHistory.current.length >= RATE_LIMIT.MAX_MESSAGES) {
+      throw new Error(ERROR_MESSAGES.RATE_LIMIT);
+    }
+
+    // Check minimum delay between messages
+    if (now - lastMessageTime.current < RATE_LIMIT.MIN_DELAY) {
+      throw new Error(ERROR_MESSAGES.SPAM);
+    }
+
+    // Update tracking
+    messageHistory.current.push(now);
+    lastMessageTime.current = now;
+  }, []);
+
+  // Spam detection
+  const detectSpam = useCallback((input) => {
+    // Check for repeated messages
+    const lastUserMessage = messages.findLast(msg => msg.isUser)?.content;
+    if (lastUserMessage === input) {
+      throw new Error(ERROR_MESSAGES.SPAM);
+    }
+
+    // Check for very long messages
+    if (input.length > 1000) {
+      throw new Error(ERROR_MESSAGES.INVALID_INPUT);
+    }
+
+    // Check for excessive special characters
+    const specialCharRatio = (input.match(/[^a-zA-Z0-9\s]/g) || []).length / input.length;
+    if (specialCharRatio > 0.4) {
+      throw new Error(ERROR_MESSAGES.INVALID_INPUT);
+    }
+  }, [messages]);
+
+  const scrollToBottom = useCallback(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ 
         behavior: "smooth",
         block: "end"
       });
     }
-  };
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, isWaiting]);
+  }, [messages, isWaiting, scrollToBottom]);
 
+  // Initialize OpenAI client and assistant
   useEffect(() => {
-    // Initialize OpenAI client once
-    const client = new OpenAI({
-      apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-      dangerouslyAllowBrowser: true,
-    });
-    setOpenaiClient(client);
-
-    const initAssistant = async () => {
+    const initializeChat = async () => {
       try {
+        const client = new OpenAI({
+          apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+          dangerouslyAllowBrowser: true,
+        });
+        setOpenaiClient(client);
+
         const threadInstance = await client.beta.threads.create();
         setThread(threadInstance);
         setAssistant({ id: "asst_cNrfkmuV6rP4Zg6qZko95zDj" });
+        setIsInitialized(true);
       } catch (error) {
-        console.error("Error initializing Thread:", error);
+        console.error("Error initializing chat:", error);
+        // Retry initialization after delay
+        setTimeout(initializeChat, 5000);
       }
     };
 
-    initAssistant();
+    initializeChat();
   }, []);
 
   const handleSendMessage = async () => {
-    if (!input.trim() || !assistant || !thread || !openaiClient) return;
-
-    const userMessage = { isUser: true, content: input.trim() };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
-    setInput("");
-    setIsWaiting(true);
-
+    if (!input.trim()) return;
+    
     try {
+      // Check initialization
+      if (!isInitialized || !assistant || !thread || !openaiClient) {
+        throw new Error(ERROR_MESSAGES.INITIALIZATION);
+      }
+
+      // Check rate limits and spam
+      checkRateLimit();
+      detectSpam(input.trim());
+
+      const userMessage = { isUser: true, content: input.trim() };
+      setMessages(prev => [...prev, userMessage]);
+      setInput("");
+      setIsWaiting(true);
+
       await openaiClient.beta.threads.messages.create(thread.id, {
         role: "user",
         content: input.trim(),
@@ -120,35 +195,43 @@ const PratGPTCard = () => {
 
       let runStatus = await openaiClient.beta.threads.runs.retrieve(thread.id, run.id);
       
+      // Add timeout for long-running requests
+      let timeout = setTimeout(() => {
+        if (runStatus.status === "in_progress" || runStatus.status === "queued") {
+          throw new Error(ERROR_MESSAGES.API_ERROR);
+        }
+      }, 30000); // 30 second timeout
+
       while (runStatus.status === "in_progress" || runStatus.status === "queued") {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         runStatus = await openaiClient.beta.threads.runs.retrieve(thread.id, run.id);
       }
 
+      clearTimeout(timeout);
+
       if (runStatus.status === "completed") {
         const messages = await openaiClient.beta.threads.messages.list(thread.id);
-        
         const lastMessage = messages.data
           .filter(msg => msg.role === "assistant")
           .shift();
 
-        if (lastMessage && lastMessage.content && lastMessage.content[0]) {
+        if (lastMessage?.content?.[0]) {
           const assistantMessage = {
             isUser: false,
             content: lastMessage.content[0].text.value,
           };
-          setMessages((prevMessages) => [...prevMessages, assistantMessage]);
+          setMessages(prev => [...prev, assistantMessage]);
         }
       } else {
-        throw new Error(`Run ended with status: ${runStatus.status}`);
+        throw new Error(ERROR_MESSAGES.API_ERROR);
       }
     } catch (error) {
       console.error("Error in conversation:", error);
-      setMessages((prevMessages) => [
-        ...prevMessages,
+      setMessages(prev => [
+        ...prev,
         {
           isUser: false,
-          content: "I apologize, but I encountered an error. Please try again.",
+          content: error.message || ERROR_MESSAGES.API_ERROR,
         },
       ]);
     } finally {
@@ -156,6 +239,7 @@ const PratGPTCard = () => {
     }
   };
 
+  // Rest of the JSX remains the same...
   return (
     <>
       <style>
@@ -222,7 +306,7 @@ const PratGPTCard = () => {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                  onKeyDown={(e) => e.key === "Enter" && !isWaiting && handleSendMessage()}
                   placeholder="Type your message"
                   disabled={isWaiting}
                 />
