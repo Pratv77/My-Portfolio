@@ -5,7 +5,8 @@ import PratGPTCard from "./components/PratGPTCard/PratGPTCard";
 import MainProjectCard from "./components/MainProjectCard/MainProjectCard";
 import PhotoGalleryCard from "./components/PhotoGalleryCard/PhotoGalleryCard";
 import ContactCard from "./components/ContactCard/ContactCard";
-import SpotifyCard from "./components/SpotifyCard/SpotifyCard";
+import GIFCard from "./components/GIFCard/GifCard";
+
 import Card from "./components/Card";
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
           <Card><MainProjectCard></MainProjectCard></Card>
         </div>
         <div className="col-span-2 md:col-span-2">
-          <Card><SpotifyCard></SpotifyCard></Card>
+          <Card><GIFCard></GIFCard></Card>
         </div>
         <div className="col-span-2 md:col-span-2">
           <Card><ContactCard></ContactCard></Card>
