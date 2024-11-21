@@ -124,6 +124,7 @@ function App() {
                   you!
                 </p>
                 <form
+                  action="https://formspree.io/f/mbljkqpb"
                   onSubmit={handleFormSubmit}
                   method="POST"
                   className="space-y-4"
