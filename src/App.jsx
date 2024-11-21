@@ -13,6 +13,8 @@ import Card from "./components/Card";
 function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [fadeCard, setFadeCard] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleLeaveMessageClick = () => {
     setShowOverlay(true);
@@ -22,6 +24,33 @@ function App() {
   const handleClose = () => {
     setFadeCard(false);
     setTimeout(() => setShowOverlay(false), 500);
+    setIsSubmitting(false);
+    setIsSent(false);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const formData = new FormData(form);
+
+    setIsSubmitting(true);
+
+    const response = await fetch("https://formspree.io/f/mbljkqpb", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      setIsSent(true);
+      setTimeout(() => {
+        handleClose();
+      }, 2000);
+    } else {
+      alert("There was an error sending your message. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -95,9 +124,8 @@ function App() {
                   you!
                 </p>
                 <form
-                  action="mailto:contact@prathamvijh.com"
+                  onSubmit={handleFormSubmit}
                   method="POST"
-                  encType="text/plain"
                   className="space-y-4"
                 >
                   <div>
@@ -112,7 +140,7 @@ function App() {
                       id="name"
                       name="name"
                       required
-                      placeholder="Enter your name"
+                      placeholder="Name"
                       className="w-full border-b border-gray-500 bg-transparent text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
                     />
                   </div>
@@ -128,7 +156,7 @@ function App() {
                       id="email"
                       name="email"
                       required
-                      placeholder="Enter your email"
+                      placeholder="Email"
                       className="w-full border-b border-gray-500 bg-transparent text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
                     />
                   </div>
@@ -150,9 +178,16 @@ function App() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+                    className={`w-full py-2 rounded transition ${
+                      isSent
+                        ? "bg-green-500 text-white"
+                        : isSubmitting
+                        ? "bg-blue-400 text-white cursor-not-allowed"
+                        : "bg-blue-500 text-white hover:bg-blue-600"
+                    }`}
+                    disabled={isSubmitting}
                   >
-                    Send it my way!
+                    {isSent ? "Sent!" : isSubmitting ? "Sending..." : "Send it my way!"}
                   </button>
                 </form>
               </div>
