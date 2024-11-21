@@ -16,17 +16,16 @@ function App() {
 
   const handleLeaveMessageClick = () => {
     setShowOverlay(true);
-    setTimeout(() => setFadeCard(true), 10); // Add slight delay for fade-in effect
+    setTimeout(() => setFadeCard(true), 10);
   };
 
   const handleClose = () => {
     setFadeCard(false);
-    setTimeout(() => setShowOverlay(false), 500); // Allow fade-out animation before closing overlay
+    setTimeout(() => setShowOverlay(false), 500);
   };
 
   return (
     <div className="relative min-h-screen p-4 grid place-items-center">
-      {/* Main Content Grid */}
       <div
         className={`w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 transition-all duration-500 ${
           showOverlay ? "blur-sm pointer-events-none opacity-50" : "opacity-100"
@@ -68,18 +67,16 @@ function App() {
           </Card>
         </div>
       </div>
-
-      {/* Overlay */}
       {showOverlay && (
         <div
           className="fixed inset-0 z-10 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-500"
-          onClick={handleClose} // Clicking outside the modal closes it
+          onClick={handleClose}
         >
           <div
             className={`relative bg-black border border-gray-500 rounded-lg shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden transition-all duration-500 ${
               fadeCard ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
-            onClick={(e) => e.stopPropagation()} // Prevent clicking inside from closing
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={handleClose}
@@ -87,7 +84,7 @@ function App() {
             >
               ×
             </button>
-            {/* Modal Content */}
+            {/* Card Content */}
             <div className="flex flex-col h-auto max-h-[80vh] overflow-y-auto">
               <div className="p-6">
                 <h2 className="text-xl lg:text-2xl font-bold mb-2 text-center text-white">
