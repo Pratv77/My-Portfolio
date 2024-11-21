@@ -74,7 +74,7 @@ function App() {
           onClick={handleClose}
         >
           <div
-            className={`relative bg-white rounded-lg shadow-lg w-[90%] max-w-md p-6 transition-all duration-500 ${
+            className={`relative bg-white rounded-lg shadow-lg w-11/12 max-w-xl h-[90%] sm:h-[80%] sm:w-11/12 md:w-[500px] lg:w-[600px] lg:h-[500px] p-6 transition-all duration-500 ${
               fadeCard ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
             onClick={(e) => e.stopPropagation()}
@@ -86,7 +86,7 @@ function App() {
               ×
             </button>
             {/* Card Content */}
-            <div className="h-40 flex items-center justify-center text-gray-500 text-2xl">
+            <div className="flex items-center justify-center text-gray-500 text-2xl">
               New Content Here
             </div>
           </div>
