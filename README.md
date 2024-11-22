@@ -1,4 +1,4 @@
-# Pratham's Personal Portfolio 🚀
+# Developer Portfolio Website
 
 [Twitter](https://x.com/PratGPT) | [Instagram](https://www.instagram.com/prathamv77/) | [LinkedIn](https://www.linkedin.com/in/pratv7/)
 
