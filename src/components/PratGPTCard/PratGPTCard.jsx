@@ -93,6 +93,7 @@ const PratGPTCard = () => {
   const [openaiClient, setOpenaiClient] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
   const messagesEndRef = useRef(null);
+  const messageContainerRef = useRef(null);
   const lastMessageTime = useRef(Date.now());
   const messageCount = useRef(0);
   const messageHistory = useRef([]);
@@ -143,18 +144,23 @@ const PratGPTCard = () => {
   );
 
   const scrollToBottom = useCallback(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-      });
+    if (messagesEndRef.current && messageContainerRef.current) {
+      const container = messageContainerRef.current;
+      const isNearBottom =
+        container.scrollHeight - container.scrollTop - container.clientHeight < 100;
+
+      if (isNearBottom) {
+        container.scrollTo({
+          top: container.scrollHeight,
+          behavior: "smooth"
+        });
+      }
     }
   }, []);
 
   useEffect(() => {
     scrollToBottom();
   }, [messages, isWaiting, scrollToBottom]);
-
   // Initialize OpenAI client and assistant
   useEffect(() => {
     const initializeChat = async () => {
@@ -323,7 +329,11 @@ const PratGPTCard = () => {
               </div>
             </div>
 
-            <div className="flex-grow p-4 overflow-y-auto pt-20 message-container">
+            <div 
+              ref={messageContainerRef}
+              className="flex-grow p-4 overflow-y-auto pt-20 message-container"
+              style={{ scrollbarWidth: 'thin' }}
+            >
               {messages.map((message, index) => (
                 <MessageBubble
                   key={index}
