@@ -2,31 +2,42 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import OpenAI from "openai";
 import sendIcon from "../../assets/send.png";
 import profilePicture from "../../assets/ProfileP.png";
+import { Info } from "lucide-react";
 
 // Rate limiting constants
 const RATE_LIMIT = {
-  MAX_MESSAGES: 25,    // Maximum messages per time window
-  TIME_WINDOW: 3600000, // Time window in milliseconds (1 hour)
-  MIN_DELAY: 1000,     // Minimum delay between messages (1 second)
+  MAX_MESSAGES: 25,
+  TIME_WINDOW: 3600000,
+  MIN_DELAY: 1000,
 };
 
 const ERROR_MESSAGES = {
-  RATE_LIMIT: "You've sent too many messages. Please wait a while before trying again.",
+  RATE_LIMIT:
+    "You've sent too many messages. Please wait a while before trying again.",
   SPAM: "Please wait a moment before sending another message.",
-  API_ERROR: "I'm having trouble connecting right now. Please try again in a moment.",
+  API_ERROR:
+    "I'm having trouble connecting right now. Please try again in a moment.",
   INITIALIZATION: "I'm still initializing. Please try again in a few seconds.",
   INVALID_INPUT: "I couldn't process that message. Please try something else.",
 };
 
-// Components remain the same as before
 const TypingIndicator = () => (
   <div className="flex w-full mt-2 space-x-3 max-w-xs animate-fade-in">
     <div>
       <div className="bg-neutral-800 p-4 rounded-r-lg rounded-bl-lg">
         <div className="flex space-x-2">
-          <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-          <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '150ms' }}></div>
-          <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+          <div
+            className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"
+            style={{ animationDelay: "0ms" }}
+          ></div>
+          <div
+            className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"
+            style={{ animationDelay: "150ms" }}
+          ></div>
+          <div
+            className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"
+            style={{ animationDelay: "300ms" }}
+          ></div>
         </div>
       </div>
       <span className="text-xs text-gray-500 leading-none">PratGPT</span>
@@ -38,7 +49,7 @@ const MessageBubble = ({ message, isLatest }) => {
   const baseClasses = `flex w-full mt-2 space-x-3 max-w-xs ${
     message.isUser ? "ml-auto justify-end" : ""
   }`;
-  
+
   const animationClasses = isLatest ? "animate-message-appear" : "";
 
   return (
@@ -65,12 +76,12 @@ const PratGPTCard = () => {
   const staticMessages = [
     {
       isUser: true,
-      content: "What's your purpose here?",
+      content: "What can I ask you about?",
     },
     {
       isUser: false,
       content:
-        "Hey! I'm here to help you explore Pratham's portfolio! I can answer questions about his skills, projects, and even guide you through his work. Ask me anything!",
+        "You can ask me about all sorts of things! For example, 'What does Pratham like to do in his free time?', 'What projects has he completed so far?', or 'What's that Work-In-Progress card about?' Feel free to explore!",
     },
   ];
 
@@ -90,50 +101,52 @@ const PratGPTCard = () => {
   const checkRateLimit = useCallback(() => {
     const now = Date.now();
     const timeWindow = now - RATE_LIMIT.TIME_WINDOW;
-    
-    // Clean up old messages
-    messageHistory.current = messageHistory.current.filter(time => time > timeWindow);
-    
-    // Check if we're over the limit
+
+    messageHistory.current = messageHistory.current.filter(
+      (time) => time > timeWindow
+    );
+
     if (messageHistory.current.length >= RATE_LIMIT.MAX_MESSAGES) {
       throw new Error(ERROR_MESSAGES.RATE_LIMIT);
     }
 
-    // Check minimum delay between messages
     if (now - lastMessageTime.current < RATE_LIMIT.MIN_DELAY) {
       throw new Error(ERROR_MESSAGES.SPAM);
     }
 
-    // Update tracking
     messageHistory.current.push(now);
     lastMessageTime.current = now;
   }, []);
 
   // Spam detection
-  const detectSpam = useCallback((input) => {
-    // Check for repeated messages
-    const lastUserMessage = messages.findLast(msg => msg.isUser)?.content;
-    if (lastUserMessage === input) {
-      throw new Error(ERROR_MESSAGES.SPAM);
-    }
+  const detectSpam = useCallback(
+    (input) => {
+      // Check for repeated messages
+      const lastUserMessage = messages.findLast((msg) => msg.isUser)?.content;
+      if (lastUserMessage === input) {
+        throw new Error(ERROR_MESSAGES.SPAM);
+      }
 
-    // Check for very long messages
-    if (input.length > 1000) {
-      throw new Error(ERROR_MESSAGES.INVALID_INPUT);
-    }
+      // Check for very long messages
+      if (input.length > 1000) {
+        throw new Error(ERROR_MESSAGES.INVALID_INPUT);
+      }
 
-    // Check for excessive special characters
-    const specialCharRatio = (input.match(/[^a-zA-Z0-9\s]/g) || []).length / input.length;
-    if (specialCharRatio > 0.4) {
-      throw new Error(ERROR_MESSAGES.INVALID_INPUT);
-    }
-  }, [messages]);
+      // Check for excessive special characters
+      const specialCharRatio =
+        (input.match(/[^a-zA-Z0-9\s]/g) || []).length / input.length;
+      if (specialCharRatio > 0.4) {
+        throw new Error(ERROR_MESSAGES.INVALID_INPUT);
+      }
+    },
+    [messages]
+  );
 
   const scrollToBottom = useCallback(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ 
+      messagesEndRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "end"
+        block: "end",
       });
     }
   }, []);
@@ -154,11 +167,10 @@ const PratGPTCard = () => {
 
         const threadInstance = await client.beta.threads.create();
         setThread(threadInstance);
-        setAssistant({ id: "asst_cNrfkmuV6rP4Zg6qZko95zDj" });
+        setAssistant({ id: import.meta.env.VITE_OPENAI_ASSISTANT_ID });
         setIsInitialized(true);
       } catch (error) {
         console.error("Error initializing chat:", error);
-        // Retry initialization after delay
         setTimeout(initializeChat, 5000);
       }
     };
@@ -168,19 +180,17 @@ const PratGPTCard = () => {
 
   const handleSendMessage = async () => {
     if (!input.trim()) return;
-    
+
     try {
-      // Check initialization
       if (!isInitialized || !assistant || !thread || !openaiClient) {
         throw new Error(ERROR_MESSAGES.INITIALIZATION);
       }
 
-      // Check rate limits and spam
       checkRateLimit();
       detectSpam(input.trim());
 
       const userMessage = { isUser: true, content: input.trim() };
-      setMessages(prev => [...prev, userMessage]);
+      setMessages((prev) => [...prev, userMessage]);
       setInput("");
       setIsWaiting(true);
 
@@ -193,26 +203,39 @@ const PratGPTCard = () => {
         assistant_id: assistant.id,
       });
 
-      let runStatus = await openaiClient.beta.threads.runs.retrieve(thread.id, run.id);
-      
-      // Add timeout for long-running requests
+      let runStatus = await openaiClient.beta.threads.runs.retrieve(
+        thread.id,
+        run.id
+      );
+
       let timeout = setTimeout(() => {
-        if (runStatus.status === "in_progress" || runStatus.status === "queued") {
+        if (
+          runStatus.status === "in_progress" ||
+          runStatus.status === "queued"
+        ) {
           throw new Error(ERROR_MESSAGES.API_ERROR);
         }
-      }, 30000); // 30 second timeout
+      }, 30000);
 
-      while (runStatus.status === "in_progress" || runStatus.status === "queued") {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        runStatus = await openaiClient.beta.threads.runs.retrieve(thread.id, run.id);
+      while (
+        runStatus.status === "in_progress" ||
+        runStatus.status === "queued"
+      ) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        runStatus = await openaiClient.beta.threads.runs.retrieve(
+          thread.id,
+          run.id
+        );
       }
 
       clearTimeout(timeout);
 
       if (runStatus.status === "completed") {
-        const messages = await openaiClient.beta.threads.messages.list(thread.id);
+        const messages = await openaiClient.beta.threads.messages.list(
+          thread.id
+        );
         const lastMessage = messages.data
-          .filter(msg => msg.role === "assistant")
+          .filter((msg) => msg.role === "assistant")
           .shift();
 
         if (lastMessage?.content?.[0]) {
@@ -220,14 +243,14 @@ const PratGPTCard = () => {
             isUser: false,
             content: lastMessage.content[0].text.value,
           };
-          setMessages(prev => [...prev, assistantMessage]);
+          setMessages((prev) => [...prev, assistantMessage]);
         }
       } else {
         throw new Error(ERROR_MESSAGES.API_ERROR);
       }
     } catch (error) {
       console.error("Error in conversation:", error);
-      setMessages(prev => [
+      setMessages((prev) => [
         ...prev,
         {
           isUser: false,
@@ -239,7 +262,6 @@ const PratGPTCard = () => {
     }
   };
 
-  // Rest of the JSX remains the same...
   return (
     <>
       <style>
@@ -281,17 +303,31 @@ const PratGPTCard = () => {
                 />
                 <div className="absolute bottom-0 right-0 h-5 w-5 bg-green-500 rounded-full border-2 border-neutral-950"></div>
               </div>
-              <div className="ml-3">
-                <h2 className="text-2xl font-semibold">PratGPT</h2>
-                <span className="text-md text-gray-400">Prat#GPT</span>
+              <div className="ml-3 flex items-center">
+                <div>
+                  <h2 className="text-2xl font-semibold">PratGPT</h2>
+                  <span className="text-md text-gray-400">Prat#GPT</span>
+                </div>
+                <div className="relative group ml-2">
+                  <div className="w-4 h-4 rounded-full border border-gray-400 flex items-center justify-center text-gray-400 text-xs font-semibold cursor-help hover:text-gray-300 hover:border-gray-300 transition-colors">
+                    i
+                  </div>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-neutral-800 text-sm text-gray-200 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none w-64 shadow-lg">
+                    <p>
+                      PratGPT might occasionally get things wrong. Feel free to
+                      use the 'Leave a Message!' card to clarify with me directly.
+                    </p>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 transform rotate-45 w-2 h-2 bg-neutral-800"></div>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="flex-grow p-4 overflow-y-auto pt-20 message-container">
               {messages.map((message, index) => (
-                <MessageBubble 
-                  key={index} 
-                  message={message} 
+                <MessageBubble
+                  key={index}
+                  message={message}
                   isLatest={index === messages.length - 1}
                 />
               ))}
@@ -306,7 +342,9 @@ const PratGPTCard = () => {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && !isWaiting && handleSendMessage()}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" && !isWaiting && handleSendMessage()
+                  }
                   placeholder="Type your message"
                   disabled={isWaiting}
                 />
