@@ -10,15 +10,12 @@ const MainProfileCard = () => {
 
   return (
     <div className="relative h-full grid grid-cols-2 grid-rows-2 cursor-default border border-white/25 rounded-lg bg-transparent transition-colors duration-300">
-      {/* Background image container with fade animation */}
       <div 
         className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />
-        {/* Background image */}
         <img 
           src={splashArt} 
           className="w-full h-full object-cover rounded-lg border border-gray-500"
@@ -26,7 +23,6 @@ const MainProfileCard = () => {
         />
       </div>
 
-      {/* Main content */}
       <div className="row-span-1 grid place-content-center relative">
         <img 
           className="w-[200px] p-2 transform transition-transform duration-300 hover:scale-110 ease-in-out" 
