@@ -1,7 +1,6 @@
 # Developer Portfolio Website
 
-
----
+![Portfolio Demo](./PortfolioWebsite.gif)
 
 🌐 [Visit My Portfolio](https://prathamvijh.com/)
 
