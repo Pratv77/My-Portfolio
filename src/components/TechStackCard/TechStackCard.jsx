@@ -25,10 +25,18 @@ const TechStackCard = () => {
       <div className="grid grid-rows-4">
         <p className="text-white/70 text-3xl sm:text-4xl font-semibold mt-2 text-center">Software</p>
         <div className="row-span-3 sm:pl-2 xl:pl-10 grid grid-rows-3 grid-cols-2">
-          <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
-            <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={ArcBrowswerLogo} />
-            <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">Arc Browser</p>
-          </div>
+        <div className="relative group grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
+  <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+    Arc Browser
+  </div>
+  <img
+    className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out"
+    src={ArcBrowswerLogo}
+  />
+  <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">
+    Arc Browser
+  </p>
+</div>
           <div className="grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
             <img className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out" src={vscode} />
             <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">Visual Studio Code</p>
