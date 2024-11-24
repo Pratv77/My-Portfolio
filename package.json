@@ -17,6 +17,7 @@
     "buffer": "^6.0.3",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
+    "git-filter-repo": "^0.0.30",
     "http": "^0.0.1-security",
     "lucide-react": "^0.460.0",
     "openai": "^4.73.0",
