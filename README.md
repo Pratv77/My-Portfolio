@@ -4,7 +4,7 @@
 
 🌐 [Visit My Portfolio](https://prathamvijh.com/)
 
-Welcome to the source code of my personal portfolio! 🎉 This is where I showcase my skills, interests, and projects. It's a constantly evolving project, and I'm excited to share how my skills improve over time. Feel free to explore, learn, and contribute!
+Welcome to the source code of my personal portfolio! 🎉 This is where I showcase my skills, interests, and projects. It's a constantly evolving project, and I'm excited to share how my skills improve over time.
 
 [Back to top](#prathams-personal-portfolio-)
 
