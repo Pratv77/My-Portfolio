@@ -4,7 +4,7 @@ import sendIcon from "../../assets/send.png";
 import profilePicture from "../../assets/ProfileP.png";
 import { Info } from "lucide-react";
 
-// Rate limiting constants
+// Rate limiting
 const RATE_LIMIT = {
   MAX_MESSAGES: 25,
   TIME_WINDOW: 3600000,

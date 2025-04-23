@@ -1,11 +1,83 @@
-import React from "react";
-import "../../App.css";
+import React, { useState, useEffect } from "react";
+import projectsImage from "../../assets/projects.png";
+import ProjectsOverlay from "./ProjectsOverlay";
 
 const MainProjectCard = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const containerWidth = window.innerWidth;
+  const containerHeight = window.innerHeight;
+  const deltaX = mousePosition.x - containerWidth / 2;
+  const deltaY = mousePosition.y - containerHeight / 2;
+
+  const rotateX = isHovering ? 0 : deltaY * 0.0035;
+  const rotateY = isHovering ? 0 : -deltaX * 0.0035;
+  const backgroundScale = isHovering ? 1.15 : 1.02;
+
+  const handleCardClick = () => {
+    setShowOverlay(true);
+  };
+
+  const handleCloseOverlay = () => {
+    setShowOverlay(false);
+  };
+
   return (
-    <div className="h-full w-full rounded-lg animated-background bg-gradient-to-r from-blue-500 via-blue-500 to-indigo-500 grid place-content-center">
-      <p className="font-cabin-sketch text-white opacity-70 text-6xl text-center">Work-In-Progress</p>
-    </div>
+    <>
+      <div
+        className="h-full w-full rounded-lg border border-gray-500 grid place-content-center relative overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        onClick={handleCardClick}
+        style={{
+          transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+          transition: "transform 0.3s ease-out",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "-2%",
+            left: "-2%",
+            width: "104%",
+            height: "104%",
+            backgroundImage: `url(${projectsImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+            backgroundRepeat: "no-repeat",
+            transform: `scale(${backgroundScale}) translateX(${
+              (mousePosition.x / containerWidth - 0.5) * 10
+            }px) translateY(${
+              (mousePosition.y / containerHeight - 0.5) * 10
+            }px)`,
+            transition: "transform 0.3s ease-out",
+            borderRadius: "0.5rem",
+            zIndex: 0,
+          }}
+        />
+        <div
+          className={`absolute inset-0 bg-black transition-opacity duration-300 pointer-events-none ${
+            isHovering ? "opacity-30" : "opacity-0"
+          }`}
+          style={{ zIndex: 5 }}
+        />
+        <div className="z-10 text-center"></div>
+      </div>
+
+      {/* Projects Overlay */}
+      <ProjectsOverlay isVisible={showOverlay} onClose={handleCloseOverlay} />
+    </>
   );
 };
 
