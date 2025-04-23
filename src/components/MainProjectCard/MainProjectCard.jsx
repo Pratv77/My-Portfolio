@@ -75,7 +75,6 @@ const MainProjectCard = () => {
         <div className="z-10 text-center"></div>
       </div>
 
-      {/* Projects Overlay */}
       <ProjectsOverlay isVisible={showOverlay} onClose={handleCloseOverlay} />
     </>
   );

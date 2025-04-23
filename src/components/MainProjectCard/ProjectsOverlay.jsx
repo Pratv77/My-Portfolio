@@ -92,7 +92,6 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
         <div className="flex-1 overflow-y-auto p-6">
           {selectedProject === null ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* CARD: DreamScape */}
               <div
                 onClick={() => setSelectedProject("dreamscape")}
                 className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer max-w-sm mx-auto p-4 flex flex-col gap-4"
@@ -142,7 +141,6 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
                 </div>
               </div>
 
-              {/* CARD: PratGPT */}
               <div
                 onClick={() => setSelectedProject("pratgpt")}
                 className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer max-w-sm mx-auto p-4 flex flex-col gap-4"
@@ -182,7 +180,6 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
                 </div>
               </div>
 
-              {/* CARD: LoL Stats */}
               <div
                 onClick={() => setSelectedProject("lolstats")}
                 className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer max-w-sm mx-auto p-4 flex flex-col gap-4"
@@ -208,15 +205,6 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
                     </p>
                   </div>
                   <div className="flex justify-end mt-4 gap-3 text-neutral-500">
-                    <a
-                      href="#"
-                      onClick={(e) => e.stopPropagation()}
-                      className="hover:text-white transition"
-                      title="Live Demo"
-                      target="_blank"
-                    >
-                      🔗
-                    </a>
                     <a
                       href="https://github.com/Pratv77/LoLStats"
                       onClick={(e) => e.stopPropagation()}
