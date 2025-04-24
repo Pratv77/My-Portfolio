@@ -150,10 +150,18 @@ const PratGPTCard = () => {
       });
     }
   }, []);
-
+  
+  const prevMessageCount = useRef(messages.length); // initialize with starting length
+  
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, isWaiting, scrollToBottom]);
+    const newMessagesAdded = messages.length > prevMessageCount.current;
+  
+    if (newMessagesAdded) {
+      scrollToBottom();
+    }
+  
+    prevMessageCount.current = messages.length;
+  }, [messages, scrollToBottom]);
 
   // Initialize OpenAI client and assistant
   useEffect(() => {
