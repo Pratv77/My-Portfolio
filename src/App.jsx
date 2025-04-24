@@ -60,41 +60,48 @@ function App() {
           showOverlay ? "blur-sm pointer-events-none opacity-50" : "opacity-100"
         }`}
       >
-        <div className="col-span-2 row-span-2 md:col-span-4">
-          <Card>
-            <MainProfileCard />
-          </Card>
-        </div>
-        <div className="col-span-2 md:col-span-4">
-          <Card>
-            <TechStackCard />
-          </Card>
-        </div>
-        <div className="col-span-2 row-span-3 md:col-span-4 md:row-span-2">
-          <Card>
-            <PratGPTCard />
-          </Card>
-        </div>
-        <div className="col-span-2 row-span-2">
-          <Card>
-            <SocialsCard />
-          </Card>
-        </div>
-        <div className="col-span-2 row-span-2">
-          <Card>
-            <MainProjectCard />
-          </Card>
-        </div>
-        <div className="col-span-2 md:col-span-2">
-          <Card>
-            <GIFCard />
-          </Card>
-        </div>
-        <div className="col-span-2 md:col-span-2">
-          <Card>
-            <ContactCard onClick={handleLeaveMessageClick} />
-          </Card>
-        </div>
+        
+<div className="col-span-2 row-span-2 md:col-span-4">
+  <Card delay={0}>
+    <MainProfileCard />
+  </Card>
+</div>
+
+<div className="col-span-2 md:col-span-4">
+  <Card delay={0.1}>
+    <TechStackCard />
+  </Card>
+</div>
+
+<div className="col-span-2 row-span-3 md:col-span-4 md:row-span-2">
+  <Card delay={0.2}>
+    <PratGPTCard />
+  </Card>
+</div>
+
+<div className="col-span-2 row-span-2">
+  <Card delay={0.3}>
+    <SocialsCard />
+  </Card>
+</div>
+
+<div className="col-span-2 row-span-2">
+  <Card delay={0.4}>
+    <MainProjectCard />
+  </Card>
+</div>
+
+<div className="col-span-2 md:col-span-2">
+  <Card delay={0.5}>
+    <GIFCard />
+  </Card>
+</div>
+
+<div className="col-span-2 md:col-span-2">
+  <Card delay={0.6}>
+    <ContactCard onClick={handleLeaveMessageClick} />
+  </Card>
+</div>
       </div>
       {showOverlay && (
         <div
