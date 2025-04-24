@@ -12,11 +12,13 @@ const PratGPT = ({ onBack }) => {
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-zoom-out"
           onClick={() => setEnlargedImage(null)}
         >
-          <img
-            src={enlargedImage}
-            alt="Enlarged"
-            className="max-w-5xl max-h-[90vh] rounded-xl shadow-lg transition-all duration-300"
-          />
+          <div className="max-w-full max-h-[90vh] overflow-auto px-4">
+            <img
+              src={enlargedImage}
+              alt="Enlarged"
+              className="mx-auto h-auto w-auto max-h-[90vh] rounded-xl shadow-lg transition-all duration-300"
+            />
+          </div>
         </div>
       )}
 

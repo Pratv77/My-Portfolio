@@ -6,14 +6,22 @@ const MainProjectCard = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const containerWidth = window.innerWidth;
@@ -23,7 +31,17 @@ const MainProjectCard = () => {
 
   const rotateX = isHovering ? 0 : deltaY * 0.0035;
   const rotateY = isHovering ? 0 : -deltaX * 0.0035;
-  const backgroundScale = isHovering ? 1.15 : 1.02;
+
+  // Determine image zoom based on screen width
+  let baseScale = 1.02;
+  if (screenWidth >= 1024 && screenWidth < 1360) {
+    baseScale = 0.94; // slightly zoomed out in this range
+  }
+
+  let backgroundScale = baseScale;
+  if (isHovering) {
+    backgroundScale = screenWidth >= 1024 && screenWidth < 1360 ? 1.02 : 1.15;
+  }
 
   const handleCardClick = () => {
     setShowOverlay(true);
@@ -54,13 +72,12 @@ const MainProjectCard = () => {
             height: "104%",
             backgroundImage: `url(${projectsImage})`,
             backgroundSize: "cover",
-            backgroundPosition: "center top",
+            backgroundPosition:
+              screenWidth >= 1024 && screenWidth < 1360
+                ? "center 40%"
+                : "center top",
             backgroundRepeat: "no-repeat",
-            transform: `scale(${backgroundScale}) translateX(${
-              (mousePosition.x / containerWidth - 0.5) * 10
-            }px) translateY(${
-              (mousePosition.y / containerHeight - 0.5) * 10
-            }px)`,
+            transform: `scale(${backgroundScale}) translateX(${(mousePosition.x / containerWidth - 0.5) * 10}px) translateY(${(mousePosition.y / containerHeight - 0.5) * 10}px)`,
             transition: "transform 0.3s ease-out",
             borderRadius: "0.5rem",
             zIndex: 0,
@@ -72,7 +89,7 @@ const MainProjectCard = () => {
           }`}
           style={{ zIndex: 5 }}
         />
-        <div className="z-10 text-center"></div>
+        <div className="z-10 text-center" />
       </div>
 
       <ProjectsOverlay isVisible={showOverlay} onClose={handleCloseOverlay} />

@@ -15,11 +15,13 @@ const DreamScape = ({ onBack }) => {
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-zoom-out"
           onClick={() => setEnlargedImage(null)}
         >
-          <img
-            src={enlargedImage}
-            alt="Enlarged"
-            className="max-w-5xl max-h-[90vh] rounded-xl shadow-lg transition-all duration-300"
-          />
+          <div className="max-w-full max-h-[90vh] overflow-auto px-4">
+            <img
+              src={enlargedImage}
+              alt="Enlarged"
+              className="mx-auto h-auto w-auto max-h-[90vh] rounded-xl shadow-lg transition-all duration-300"
+            />
+          </div>
         </div>
       )}
 
@@ -208,8 +210,8 @@ const DreamScape = ({ onBack }) => {
           library for working with human language data, we filtered out common
           filler words and pulled out the most important keywords. That way, the
           AI prompt only included the core ideas of the dream. This approach
-          made the responses more focused and reduced the chances of the AI
-          making stuff up. Instead of generic or random outputs, users get
+          made the responses more focused and reduced the chances of AI hallucinations (AI
+          making stuff up). Instead of generic or random outputs, users get
           interpretations that actually feel connected to what they experienced.
         </p>
         <hr className="border-t border-neutral-700 my-8" />

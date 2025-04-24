@@ -13,13 +13,16 @@ const LoLStats = ({ onBack }) => {
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-zoom-out"
           onClick={() => setEnlargedImage(null)}
         >
-          <img
-            src={enlargedImage}
-            alt="Enlarged"
-            className="max-w-5xl max-h-[90vh] rounded-xl shadow-lg transition-all duration-300"
-          />
+          <div className="max-w-full max-h-[90vh] overflow-auto px-4">
+            <img
+              src={enlargedImage}
+              alt="Enlarged"
+              className="mx-auto h-auto w-auto max-h-[90vh] rounded-xl shadow-lg transition-all duration-300"
+            />
+          </div>
         </div>
       )}
+
       <div className="space-y-4 text-center">
         <h2 className="text-4xl font-bold">LoLStats</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
@@ -58,6 +61,7 @@ const LoLStats = ({ onBack }) => {
           </a>
         </div>
       </div>
+
       <div className="grid md:grid-cols-2 gap-10 items-start">
         <img
           src={LoLStatsImage}
@@ -111,7 +115,7 @@ const LoLStats = ({ onBack }) => {
 
       <div className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30">
         <span className="font-semibold">Note:</span> This project was built before
-        I learned React or responsive design best practices. Its a snapshot of my
+        I learned React or responsive design best practices. It's a snapshot of my
         earliest coding phase.
       </div>
     </div>
