@@ -128,6 +128,10 @@ const PratGPT = ({ onBack }) => {
           more creative projects.
         </p>
       </div>
+      <div className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30 mt-4">
+        <span className="font-semibold">🎉 Fun Fact:</span> You can chat with
+        the upgraded version of this project live on this site. Say hi to PratGPT!
+      </div>
     </div>
   );
 };
