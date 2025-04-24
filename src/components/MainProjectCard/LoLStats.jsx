@@ -30,19 +30,15 @@ const LoLStats = ({ onBack }) => {
           taught me the foundations of REST APIs, asynchronous JavaScript, and
           structuring dynamic front-end data.
         </p>
-        <div className="text-sm text-neutral-300 space-x-2 mt-2 cursor-default">
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            HTML
-          </span>
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            CSS
-          </span>
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            JavaScript
-          </span>
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            Riot Games API
-          </span>
+        <div className="flex flex-wrap justify-center gap-2 text-sm text-neutral-300 mt-2 cursor-default">
+          {["HTML", "CSS", "JavaScript", "Riot Games API"].map((tech, index) => (
+            <span
+              key={index}
+              className="bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
         <div className="flex justify-center gap-4">
           <button

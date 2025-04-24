@@ -30,16 +30,15 @@ const PratGPT = ({ onBack }) => {
           built with an older tech stack, the results were surprisingly
           impactful.
         </p>
-        <div className="text-sm text-neutral-300 space-x-2 mt-2 cursor-default">
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            Node.js
-          </span>
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            OpenAI API
-          </span>
-          <span className="inline-block bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium">
-            discord.js
-          </span>
+        <div className="flex flex-wrap justify-center gap-2 text-sm text-neutral-300 mt-2 cursor-default">
+          {["Node.js", "OpenAI API", "discord.js"].map((tech, index) => (
+            <span
+              key={index}
+              className="bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
 
         <div className="flex justify-center gap-4">
