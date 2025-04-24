@@ -21,7 +21,7 @@ const LoLStats = ({ onBack }) => {
         </div>
       )}
       <div className="space-y-4 text-center">
-        <h2 className="text-4xl font-bold">🧠 LoLStats</h2>
+        <h2 className="text-4xl font-bold">LoLStats</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
           <strong>LoLStats</strong> is an interactive League of Legends match
           analysis tool that I built early in my web development journey. It uses

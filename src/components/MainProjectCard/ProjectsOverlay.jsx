@@ -104,13 +104,13 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-between relative">
-                  <span className="absolute top-0 right-0 text-xs text-neutral-500">
-                    2025
-                  </span>
                   <div>
-                    <h3 className="text-white text-lg font-semibold mb-1 tracking-tight">
-                      DreamScape
-                    </h3>
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-white text-lg font-semibold tracking-tight">
+                        DreamScape
+                      </h3>
+                      <span className="text-xs text-neutral-500">2025</span>
+                    </div>
                     <p className="text-sm text-neutral-400 leading-snug">
                       Hackathon-winning app that turns dreams into symbolic
                       insights through interactive, AI-powered analysis.
@@ -153,13 +153,13 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-between relative">
-                  <span className="absolute top-0 right-0 text-xs text-neutral-500">
-                    2023
-                  </span>
                   <div>
-                    <h3 className="text-white text-lg font-semibold mb-1 tracking-tight">
-                      PratGPT Discord Bot
-                    </h3>
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-white text-lg font-semibold tracking-tight">
+                        PratGPT Discord Bot
+                      </h3>
+                      <span className="text-xs text-neutral-500">2023</span>
+                    </div>
                     <p className="text-sm text-neutral-400 leading-snug">
                       GPT-powered Discord bot that simulates real/customizable
                       personalities and chats like a tailored companion.
@@ -192,13 +192,13 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
                   />
                 </div>
                 <div className="flex-1 flex flex-col justify-between relative">
-                  <span className="absolute top-0 right-0 text-xs text-neutral-500">
-                    2023
-                  </span>
                   <div>
-                    <h3 className="text-white text-lg font-semibold mb-1 tracking-tight">
-                      LoL Stats Tracker
-                    </h3>
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-white text-lg font-semibold tracking-tight">
+                        League of Legends Statistics Tracker
+                      </h3>
+                      <span className="text-xs text-neutral-500">2023</span>
+                    </div>
                     <p className="text-sm text-neutral-400 leading-snug">
                       Riot API-powered tracker that visualizes League match
                       stats, player data, and performance history.
