@@ -93,7 +93,8 @@ const PratGPT = ({ onBack }) => {
         <p className="text-neutral-300">
           I built PratGPT using <strong>Node.js</strong>,{" "}
           <strong>discord.js</strong>, and <strong>OpenAI's</strong>{" "}
-          <em>text-davinci-003</em>. When the bot is mentioned in a server, it
+          <em>text-davinci-003</em>. That model was actually quite an older model even at the time I made this project,
+          this was to practice using a cheaper model to experiment without overspending. When the bot is mentioned in a server, it
           fetches the previous message (or few), builds a conversation prompt
           using the participants' names and messages, and sends that to OpenAI.
           The AI then responds in character. It simulates dialogue by formatting
@@ -130,7 +131,7 @@ const PratGPT = ({ onBack }) => {
       </div>
       <div className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30 mt-4">
         <span className="font-semibold">🎉 Fun Fact:</span> You can chat with
-        the upgraded version of this project live on this site. Say hi to PratGPT!
+        the upgraded version of this project live on this site. Say hi to PratGPT on the home screen!
       </div>
     </div>
   );
