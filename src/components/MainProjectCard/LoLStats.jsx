@@ -71,13 +71,13 @@ const LoLStats = ({ onBack }) => {
         />
         <div>
           <h3 className="text-2xl font-semibold mb-2">What It Does</h3>
-          <p className="text-neutral-400">
+          <p className="text-neutral-300">
             Users can search any summoner name to view their profile, ranked
             statistics, and recent match history. Each match entry includes
             champion played, KDA, summoner spells, items, runes, game mode, and
             both team compositions.
           </p>
-          <p className="text-neutral-400 mt-4">
+          <p className="text-neutral-300 mt-4">
             The app makes multiple Riot API calls under the hood and maps raw game
             data to visual components using DOM manipulation and image asset
             mapping.
@@ -99,7 +99,7 @@ const LoLStats = ({ onBack }) => {
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h3 className="text-2xl font-semibold mb-2">What I Learned</h3>
-          <p className="text-neutral-400">
+          <p className="text-neutral-300">
             This was my first time working with APIs and rendering data
             dynamically. I learned how to parse nested JSON, use query parameters,
             and think through multi-step asynchronous flows. I also figured out

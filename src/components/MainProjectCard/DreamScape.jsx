@@ -91,7 +91,7 @@ const DreamScape = ({ onBack }) => {
         />
         <div>
           <h3 className="text-2xl font-semibold mb-2">Why We Built It</h3>
-          <p className="text-neutral-400">
+          <p className="text-neutral-300">
             One of our teammates remembered how his mom used to analyze her
             dreams, and that turned into our core idea: using AI to help people
             find insight through dreams. We kept asking ourselves, how can we
@@ -106,7 +106,7 @@ const DreamScape = ({ onBack }) => {
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h3 className="text-2xl font-semibold mb-2">What It Does</h3>
-          <p className="text-neutral-400">
+          <p className="text-neutral-300">
             Users type or speak their dream. Then, they choose one of three
             interpretations:
             <ul className="list-disc pl-5 mt-2">
@@ -142,14 +142,14 @@ const DreamScape = ({ onBack }) => {
         />
         <div>
           <h3 className="text-2xl font-semibold mb-2">⚙️ How We Built It</h3>
-          <p className="text-neutral-400">
-            I speedran the frontend using React and Tailwind. I was spending
-            quite some time worrying about perfection until I realized the goal
-            was to get a working product fast, then refine. That mindset helped
-            a lot. With the help of multiple LLM's, I used the same prompt on
-            each model to compare and see which output would provide the best
-            results, doing so helped me avoid bugs and generate clean code at a
-            very fast rate without overcomplicating anything. Our stack was:
+          <p className="text-neutral-300">
+            We built DreamScape in under 36 hours by splitting tasks and moving
+            fast. I designed the frontend with React and Tailwind, using custom
+            SVGs for the medieval aesthetic. Tej handled the AI logic with
+            Gemini, Python, and NLTK. Julius set up the API and database for
+            user logins and dream logs. Jahangir added speech-to-text and
+            connected everything into one smooth flow. We focused on shipping
+            fast, then cleaned things up after. Our stack was:
             <br />
             <br />- <b>Frontend:</b> React + Tailwind CSS
             <br />- <b>Backend:</b> Express.js
@@ -165,7 +165,7 @@ const DreamScape = ({ onBack }) => {
           <h3 className="text-2xl font-semibold mb-2">
             We Got to Share Our Journey
           </h3>
-          <p className="text-neutral-400">
+          <p className="text-neutral-300">
             After the hackathon wrapped up, we got interviewed by{" "}
             <em>The Medium</em>, the official UTM student publication. They
             asked us about how the idea came together, how we split up the work,
@@ -194,12 +194,19 @@ const DreamScape = ({ onBack }) => {
       <div className="space-y-6">
         <h3 className="text-2xl font-semibold">🙋‍♂️ My Role</h3>
         <p className="text-neutral-300">
-          I built the frontend from scratch, designed the layout and animations,
-          and handled visual integration. I also helped with storytelling and
-          our final Zoom pitch, since a snowstorm hit and we couldn't present in
-          person. Instead of staying at the university overnight, we decided to
-          work together over Discord from home. It was slightly chaotic, but it
-          worked.
+          I designed and built the entire frontend from the ground up using
+          React and Tailwind, including all the UI/UX decisions. Everything from
+          the layout to the user flow was coded directly without design tools,
+          and I made sure each screen felt smooth and cohesive with subtle
+          transitions and element fade-ins. For the visuals, I sourced free
+          medieval-themed SVGs and customized them in GIMP to match our
+          aesthetic, creating a unified look that tied the whole experience
+          together. I also presented during the final demo, where we split the
+          pitch evenly between team members. Despite having to pivot last-minute
+          to Zoom due to a snowstorm, we pulled it off smoothly working together
+          over Discord. The judges appreciated how well our project aligned with
+          the theme and that we delivered a complete, working MVP by the
+          deadline.
         </p>
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">💡 NLP and AI</h3>
@@ -210,9 +217,10 @@ const DreamScape = ({ onBack }) => {
           library for working with human language data, we filtered out common
           filler words and pulled out the most important keywords. That way, the
           AI prompt only included the core ideas of the dream. This approach
-          made the responses more focused and reduced the chances of AI hallucinations (AI
-          making stuff up). Instead of generic or random outputs, users get
-          interpretations that actually feel connected to what they experienced.
+          made the responses more focused and reduced the chances of AI
+          hallucinations (AI making stuff up). Instead of generic or random
+          outputs, users get interpretations that actually feel connected to
+          what they experienced.
         </p>
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">The Outcome</h3>
