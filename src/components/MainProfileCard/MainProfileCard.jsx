@@ -30,12 +30,18 @@ const MainProfileCard = () => {
         />
       </div>
       <div className="row-span-1 text-white grid place-content-center p-2 mt-4 relative">
-        <p className="text-md text-gray-500">Age</p>
-        <p className="text-lg text-gray-300 font-bold">{ageText}</p>
-        <p className="text-md text-gray-500">Location</p>
-        <p className="text-lg text-gray-300 font-bold">Toronto, Canada</p>
-        <p className="text-md text-gray-500">Education</p>
-        <p className="text-lg text-gray-300 font-bold">University of Toronto</p>
+        <p className="text-sm sm:text-md text-gray-500">Age</p>
+        <p className="text-base sm:text-lg text-gray-300 font-bold">
+          {ageText}
+        </p>
+        <p className="text-sm sm:text-md text-gray-500">Location</p>
+        <p className="text-base sm:text-lg text-gray-300 font-bold">
+          Toronto, Canada
+        </p>
+        <p className="text-sm sm:text-md text-gray-500">Education</p>
+        <p className="text-base sm:text-lg text-gray-300 font-bold">
+          University of Toronto
+        </p>
       </div>
       <div className="col-span-2 relative">
         <p className="text-gray-500 text-xl sm:text-2xl px-12 mt-2 lg:px-14 2xl:ml-8">
