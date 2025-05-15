@@ -112,16 +112,16 @@
     transform: rotate(0deg);
   }
   55% {
-    transform: rotate(370deg); /* overshoot forward (10deg past 360) */
+    transform: rotate(370deg);
   }
   75% {
-    transform: rotate(345deg); /* recoil back (15deg) */
+    transform: rotate(345deg);
   }
   85% {
-    transform: rotate(360deg); /* settle forward */
+    transform: rotate(360deg);
   }
   95% {
-    transform: rotate(355deg); /* tiny recoil */
+    transform: rotate(355deg);
   }
   100% {
     transform: rotate(360deg);
