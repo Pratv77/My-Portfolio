@@ -13,6 +13,8 @@ import logo from "./assets/Logo.png";
 
 function App() {
   const [showOverlay, setShowOverlay] = useState(false);
+  const [isRendering, setIsRendering] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
@@ -46,6 +48,24 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (showOverlay) {
+      setIsRendering(true);
+      document.body.style.overflow = "hidden";
+      setTimeout(() => setFadeIn(true), 10);
+    } else {
+      setFadeIn(false);
+      setTimeout(() => {
+        setIsRendering(false);
+        document.body.style.overflow = "";
+      }, 500);
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showOverlay]);
+
   const handleLeaveMessageClick = () => {
     setShowOverlay(true);
   };
@@ -58,9 +78,7 @@ function App() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-
-    const formData = new FormData(form);
+    const formData = new FormData(e.target);
 
     setIsSubmitting(true);
 
@@ -105,9 +123,7 @@ function App() {
       >
         <div
           className={`w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 ${
-            showOverlay
-              ? "blur-sm pointer-events-none opacity-50"
-              : "opacity-100"
+            showOverlay ? "blur-sm pointer-events-none opacity-50" : "opacity-100"
           }`}
         >
           <div className="col-span-2 row-span-2 md:col-span-4">
@@ -153,13 +169,18 @@ function App() {
           </div>
         </div>
 
-        {showOverlay && (
+        {isRendering && (
           <div
-            className="fixed inset-0 z-10 bg-black bg-opacity-50 flex items-center justify-center"
-            onClick={handleClose}
+            className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ${
+              fadeIn ? "opacity-100" : "opacity-0"
+            }`}
           >
+            <div className="absolute inset-0 bg-black bg-opacity-70" onClick={handleClose} />
+
             <div
-              className="relative bg-black border border-gray-500 rounded-lg shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden"
+              className={`relative bg-black border border-gray-500 rounded-lg shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden transition-all duration-500 transform ${
+                fadeIn ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"
+              }`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -173,8 +194,7 @@ function App() {
                   Let's have a chat!
                 </h2>
                 <p className="text-sm lg:text-base text-gray-400 mb-6 text-center">
-                  I'm currently open to new opportunities, I'd love to hear from
-                  you!
+                  I'm currently open to new opportunities, I'd love to hear from you!
                 </p>
                 <form
                   action="https://formspree.io/f/mbljkqpb"
@@ -183,10 +203,7 @@ function App() {
                   className="space-y-4"
                 >
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm text-gray-200 mb-1"
-                    >
+                    <label htmlFor="name" className="block text-sm text-gray-200 mb-1">
                       Name
                     </label>
                     <input
@@ -199,10 +216,7 @@ function App() {
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm text-gray-200 mb-1"
-                    >
+                    <label htmlFor="email" className="block text-sm text-gray-200 mb-1">
                       Email
                     </label>
                     <input
@@ -215,10 +229,7 @@ function App() {
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm text-gray-200 mb-1"
-                    >
+                    <label htmlFor="message" className="block text-sm text-gray-200 mb-1">
                       Message
                     </label>
                     <textarea
@@ -241,11 +252,7 @@ function App() {
                     }`}
                     disabled={isSubmitting}
                   >
-                    {isSent
-                      ? "Sent!"
-                      : isSubmitting
-                      ? "Sending..."
-                      : "Send it my way!"}
+                    {isSent ? "Sent!" : isSubmitting ? "Sending..." : "Send it my way!"}
                   </button>
                 </form>
               </div>
