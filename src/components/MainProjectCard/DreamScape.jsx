@@ -92,11 +92,17 @@ const DreamScape = ({ onBack }) => {
         <div>
           <h3 className="text-2xl font-semibold mb-2">Why We Built It</h3>
           <p className="text-neutral-300">
-            One of our teammates remembered how his mom used to analyze her
-            dreams, and that turned into our core idea: using AI to help people
-            find insight through dreams. We kept asking ourselves, how can we
-            make dream interpretation actually feel <em>meaningful</em>, instead
-            of just vague symbolism? That's where the idea of structured, themed
+            The hackathon was a 3-day sprint, kicking off at 8pm Friday and
+            wrapping up by 9am Sunday. It officially began once the theme{" "}
+            <strong>Discovery</strong> was announced during the opening
+            ceremony. That could’ve meant anything from historical discoveries
+            to geolocation tools, but we were drawn to self-discovery. <br />
+            <br />
+            One of our teammates, Tej, shared how his mom used to analyze her
+            dreams, and that sparked our core idea: using AI to help people find
+            insight through dreams. We kept asking ourselves, how can we make
+            dream interpretation actually feel <em>meaningful</em>, instead of
+            just vague symbolism? That’s where the idea of structured, themed
             interpretations came in: one emotional, one symbolic, and one
             actionable.
           </p>
