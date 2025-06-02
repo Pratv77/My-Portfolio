@@ -44,9 +44,9 @@ const MainProfileCard = () => {
         </p>
       </div>
       <div className="col-span-2 relative">
-        <p className="text-gray-500 text-xl sm:text-2xl px-12 mt-2 lg:px-14 2xl:ml-8">
+        <p className="text-gray-500 text-base min-[400px]:text-xl sm:text-2xl px-10 min-[400px]:px-12 mt-2 lg:px-14 2xl:ml-8">
           I'm{" "}
-          <span className="text-4xl font-bold sm:text-5xl bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+          <span className="text-3xl min-[400px]:text-4xl font-bold sm:text-5xl bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
             Pratham
           </span>
           , a front-end developer focused on React and blockchain technology.
