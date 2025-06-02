@@ -92,7 +92,7 @@ const DreamScape = ({ onBack }) => {
         <div>
           <h3 className="text-2xl font-semibold mb-2">Why We Built It</h3>
           <p className="text-neutral-300">
-            The hackathon was a 3-day sprint, kicking off at 8pm Friday and
+            The hackathon was a 3-day sprint, kicking off at 9pm Friday and
             wrapping up by 9am Sunday. It officially began once the theme{" "}
             <strong>Discovery</strong> was announced during the opening
             ceremony. That could’ve meant anything from historical discoveries

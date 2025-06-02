@@ -3,7 +3,7 @@ import Tooltip from "./tooltip.jsx";
 // Software Logos
 import ArcBrowswerLogo from "../../assets/Tech Stack Logos/Arc.png";
 import vscode from "../../assets/Tech Stack Logos/VSCode.png";
-import figma from "../../assets/Tech Stack Logos/figma.png";
+import openai from "../../assets/Tech Stack Logos/Openai.png";
 import notion from "../../assets/Tech Stack Logos/Notion.png";
 import github from "../../assets/Tech Stack Logos/Github.png";
 import photoshop from "../../assets/Tech Stack Logos/Photoshop.png";
@@ -13,7 +13,7 @@ import TailwindLogo from "../../assets/Tech Stack Logos/Tailwind.png";
 import JavaScriptLogo from "../../assets/Tech Stack Logos/Javascript.png";
 import ReactLogo from "../../assets/Tech Stack Logos/React.png";
 import SolidityLogo from "../../assets/Tech Stack Logos/Solidity.png";
-import PostgresqlLogo from "../../assets/Tech Stack Logos/Postgresql.png";
+import NextjsLogo from "../../assets/Tech Stack Logos/nextjs.png";
 // Background
 import background from "../../assets/batthern.png";
 
@@ -53,15 +53,15 @@ const TechStackCard = () => {
             </p>
           </div>
           <div className="relative group grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
-            <Tooltip message="Figma" className="block sm:hidden lg:block xl:hidden">
+            <Tooltip message="OpenAI/Sora" className="block sm:hidden lg:block xl:hidden">
               <img
                 className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out"
-                src={figma}
-                alt="Figma Logo"
+                src={openai}
+                alt="Openai Logo"
               />
             </Tooltip>
             <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">
-              Figma
+              OpenAI/Sora
             </p>
           </div>
           <div className="relative group grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
@@ -168,15 +168,15 @@ const TechStackCard = () => {
             </p>
           </div>
           <div className="relative group grid sm:grid-cols-[auto_1fr] lg:grid-cols-none xl:grid-cols-[auto_1fr] place-content-center">
-            <Tooltip message="PostgreSQL" className="block sm:hidden lg:block xl:hidden">
+            <Tooltip message="Next.js" className="block sm:hidden lg:block xl:hidden">
               <img
                 className="w-[40px] col-span-1 p-1 bg-black/30 rounded-md hover:scale-125 transition ease-in-out"
-                src={PostgresqlLogo}
-                alt="PostgreSQL Logo"
+                src={NextjsLogo}
+                alt="Nextjs Logo"
               />
             </Tooltip>
             <p className="hidden sm:block lg:hidden xl:block text-base font-semibold text-white/70 m-auto ml-2">
-              PostgreSQL
+              Next.js
             </p>
           </div>
         </div>
