@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import profileImage from "../../assets/Memoji_1.png";
 import splashArt from "../../assets/zed.jpeg";
 import { calculateAge } from "./calculateAge";
+import earth from "../../assets/earth.gif";
+import MyWorld from "./MyWorld";
 
 const MainProfileCard = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isEarthHovered, setIsEarthHovered] = useState(false);
   const birthDate = new Date("2002-07-02");
   const ageText = calculateAge(birthDate);
+  const [showMyWorld, setShowMyWorld] = useState(false);
 
   return (
     <div className="relative h-full grid grid-cols-2 grid-rows-2 cursor-default border border-white/25 rounded-lg bg-transparent transition-colors duration-300">
@@ -49,24 +53,52 @@ const MainProfileCard = () => {
           <span className="text-3xl min-[400px]:text-4xl font-bold sm:text-5xl bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
             Pratham
           </span>
-          , a front-end developer focused on React and blockchain technology.
-          I'm also interested in football,{" "}
-          <span
-            className="hover:text-blue-400 transition-colors duration-300 ease-in-out"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            gaming
+          , A front-end developer specializing in React and exploring Web3
+          tools. I focus on clean builds and solving real problems with tech.
+          Check out{" "}
+          <span className="relative inline-block align-middle">
+            <div
+              className={`absolute w-32 h-32 -top-12 -left-12 rounded-full transition-opacity duration-300 ease-in-out z-0 pointer-events-none ${
+                isEarthHovered ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 80%, transparent 100%)",
+                backdropFilter: isEarthHovered ? "blur(2px)" : "blur(0px)",
+                WebkitBackdropFilter: isEarthHovered
+                  ? "blur(2px)"
+                  : "blur(0px)",
+                mask: "radial-gradient(circle, black 0%, black 20%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, transparent 100%)",
+                WebkitMask:
+                  "radial-gradient(circle, black 0%, black 20%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, transparent 100%)",
+              }}
+            />
+            <img
+              src={earth}
+              alt="Animated Earth"
+              className={`w-9 h-9 object-contain cursor-pointer transition-transform duration-300 ease-in-out z-20 relative ${
+                isEarthHovered ? "scale-[2.8]" : "scale-100"
+              }`}
+              onMouseEnter={() => setIsEarthHovered(true)}
+              onMouseLeave={() => setIsEarthHovered(false)}
+              onClick={() => setShowMyWorld(true)}
+            />
+            <div
+              className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-5 transition-opacity duration-300 ease-in-out pointer-events-none z-30 ${
+                isEarthHovered ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div
+                className={`bg-black/80 backdrop-blur-sm border border-gray-600 px-4 py-2 rounded text-white whitespace-nowrap transition-all duration-300 ease-in-out ${
+                  isEarthHovered ? "text-base" : "text-sm"
+                }`}
+                style={{ fontFamily: "'Press Start 2P', monospace" }}
+              >
+                My World
+              </div>
+            </div>
           </span>
-          ,{" "}
-          <span className="hover:text-green-500 transition ease-in-out delay-90">
-            crypto
-          </span>
-          , and playing the{" "}
-          <span className="inline-block hover:text-purple-400 transition duration-500 ease-in-out transform hover:scale-110 hover:translate-y-[-5px]">
-            piano
-          </span>
-          . Discover more in my&nbsp;
+          , or take a look at my&nbsp;
           <a
             href="/Resume.pdf"
             target="_blank"
@@ -78,6 +110,7 @@ const MainProfileCard = () => {
           .
         </p>
       </div>
+      <MyWorld isVisible={showMyWorld} onClose={() => setShowMyWorld(false)} />
     </div>
   );
 };

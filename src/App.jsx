@@ -123,7 +123,9 @@ function App() {
       >
         <div
           className={`w-full max-w-[1600px] grid auto-rows-[225px] grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 ${
-            showOverlay ? "blur-sm pointer-events-none opacity-50" : "opacity-100"
+            showOverlay
+              ? "blur-sm pointer-events-none opacity-50"
+              : "opacity-100"
           }`}
         >
           <div className="col-span-2 row-span-2 md:col-span-4">
@@ -175,26 +177,45 @@ function App() {
               fadeIn ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-70" onClick={handleClose} />
+            <div
+              className="absolute inset-0 bg-black bg-opacity-70"
+              onClick={handleClose}
+            />
 
             <div
               className={`relative bg-black border border-gray-500 rounded-lg shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden transition-all duration-500 transform ${
-                fadeIn ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"
+                fadeIn
+                  ? "opacity-100 translate-y-0 scale-100"
+                  : "opacity-0 translate-y-6 scale-95"
               }`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={handleClose}
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold"
+                className="absolute top-2 right-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-full p-1.5 transition-colors"
               >
-                ×
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               </button>
               <div className="flex flex-col h-auto max-h-[80vh] overflow-y-auto p-6">
                 <h2 className="text-xl lg:text-2xl font-bold mb-2 text-center text-white">
                   Let's have a chat!
                 </h2>
                 <p className="text-sm lg:text-base text-gray-400 mb-6 text-center">
-                  I'm currently open to new opportunities, I'd love to hear from you!
+                  I'm currently open to new opportunities, I'd love to hear from
+                  you!
                 </p>
                 <form
                   action="https://formspree.io/f/mbljkqpb"
@@ -203,7 +224,10 @@ function App() {
                   className="space-y-4"
                 >
                   <div>
-                    <label htmlFor="name" className="block text-sm text-gray-200 mb-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm text-gray-200 mb-1"
+                    >
                       Name
                     </label>
                     <input
@@ -216,7 +240,10 @@ function App() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm text-gray-200 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm text-gray-200 mb-1"
+                    >
                       Email
                     </label>
                     <input
@@ -229,7 +256,10 @@ function App() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm text-gray-200 mb-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm text-gray-200 mb-1"
+                    >
                       Message
                     </label>
                     <textarea
@@ -252,7 +282,11 @@ function App() {
                     }`}
                     disabled={isSubmitting}
                   >
-                    {isSent ? "Sent!" : isSubmitting ? "Sending..." : "Send it my way!"}
+                    {isSent
+                      ? "Sent!"
+                      : isSubmitting
+                      ? "Sending..."
+                      : "Send it my way!"}
                   </button>
                 </form>
               </div>

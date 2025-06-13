@@ -59,6 +59,15 @@ export default {
           5: "hsl(var(--chart-5))",
         },
       },
+      animation: {
+        float: "float 4s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

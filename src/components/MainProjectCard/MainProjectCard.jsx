@@ -54,7 +54,7 @@ const MainProjectCard = () => {
   return (
     <>
       <div
-        className="h-full w-full rounded-lg border border-gray-500 grid place-content-center relative overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+        className="h-full w-full rounded-lg border border-white/25 grid place-content-center relative overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         onClick={handleCardClick}
