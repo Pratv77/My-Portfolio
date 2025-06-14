@@ -183,7 +183,7 @@ function App() {
             />
 
             <div
-              className={`relative bg-black border border-gray-500 rounded-lg shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden transition-all duration-500 transform ${
+              className={`relative bg-black border border-neutral-800 rounded-xl shadow-lg w-11/12 max-w-xl max-h-[80vh] overflow-hidden transition-all duration-500 transform ${
                 fadeIn
                   ? "opacity-100 translate-y-0 scale-100"
                   : "opacity-0 translate-y-6 scale-95"

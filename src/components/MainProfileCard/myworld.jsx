@@ -64,7 +64,7 @@ const MyWorld = ({ isVisible, onClose }) => {
         <div className="relative p-6 sm:p-8 lg:p-12">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 bg-neutral-800 hover:bg-neutral-700 text-white rounded-full p-1.5 transition-colors"
+            className="absolute top-4 right-4 z-50 bg-neutral-800 hover:bg-neutral-700 text-white rounded-full p-1.5 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -126,10 +126,10 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </p>
                   <p className="text-gray-300">
                     These disciplines push me to think critically, stay
-                    analytical, and keep learning. I'm especially drawn to the
+                    analytical, and keep learning. I'm particularly drawn to the
                     fast-paced world of tech, and I love staying up to date with
-                    coding trends, especially around AI. I'm always trying to
-                    learn more, build smarter, and keep an open mind.
+                    coding trends, especially those related to AI. I'm always
+                    trying to learn more, build smarter, and keep an open mind.
                   </p>
                 </div>
 
