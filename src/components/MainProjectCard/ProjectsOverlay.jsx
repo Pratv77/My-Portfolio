@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import dreamscape from "../../assets/dreamscape.png";
 import lolstatsImage from "../../assets/lolstats.png";
 import pratgpt from "../../assets/pratgpt.png";
@@ -11,6 +11,7 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
   const [fadeIn, setFadeIn] = useState(false);
   const [isRendering, setIsRendering] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const scrollResetAnchorRef = useRef(null);
 
   useEffect(() => {
     if (isVisible) {
@@ -30,6 +31,14 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
       document.body.style.overflow = "";
     };
   }, [isVisible]);
+  
+  useEffect(() => {
+    if (selectedProject !== null) {
+      setTimeout(() => {
+        scrollResetAnchorRef.current?.focus({ preventScroll: false });
+      }, 10);
+    }
+  }, [selectedProject]);
 
   const renderProjectComponent = () => {
     switch (selectedProject) {
@@ -58,12 +67,20 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
       />
 
       <div
+        key={selectedProject || "default"}
         className={`relative w-[95%] sm:w-[85%] md:w-4/5 lg:max-w-5xl max-h-[85vh] bg-black border border-neutral-800 rounded-xl shadow-xl transition-all duration-500 transform ${
           fadeIn
             ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 translate-y-6 scale-95"
         } overflow-hidden flex flex-col`}
       >
+        <button
+          ref={scrollResetAnchorRef}
+          tabIndex="-1"
+          className="absolute top-0 left-0 w-0 h-0 opacity-0 pointer-events-none"
+          aria-hidden="true"
+        />
+
         <div className="px-6 py-4 border-b border-neutral-800 flex justify-between items-center">
           <h2 className="text-xl md:text-2xl font-bold text-white">
             My Projects
