@@ -62,9 +62,9 @@ const PratGPT = ({ onBack }) => {
         <div className="flex justify-center gap-4">
           <button
             onClick={onBack}
-            className="bg-white hover:bg-gray-100 text-black font-medium py-2 px-6 rounded-lg transition"
+            className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
           >
-            ← Back to Projects
+            ← Back
           </button>
           <a
             href="https://github.com/Pratv77/PratGPT--DB"

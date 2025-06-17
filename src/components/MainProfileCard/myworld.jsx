@@ -40,7 +40,6 @@ const MyWorld = ({ isVisible, onClose }) => {
 
   const onMouseLeave = () => setRotate({ x: 0, y: 0 });
 
-  // Animation variants for sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -92,13 +91,7 @@ const MyWorld = ({ isVisible, onClose }) => {
             </svg>
           </button>
 
-          <motion.div 
-            className="flex justify-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={sectionVariants}
-          >
+          <div className="flex justify-center mb-16">
             <div className="relative group transition-transform duration-300 ease-in-out">
               <img
                 src={aboutme}
@@ -106,15 +99,11 @@ const MyWorld = ({ isVisible, onClose }) => {
                 className="w-full max-w-lg h-auto object-contain rounded-xl shadow-2xl transform group-hover:scale-[1.02] transition duration-300 ease-in-out"
               />
             </div>
-          </motion.div>
+          </div>
 
           <div className="space-y-24 text-white">
-            <motion.section 
+            <section 
               className="space-y-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              variants={sectionVariants}
             >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-400 bg-clip-text text-transparent mb-8">
                 Who I Am
@@ -165,7 +154,7 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </div>
                 </div>
               </div>
-            </motion.section>
+            </section>
 
             <motion.section 
               className="space-y-6"
@@ -243,7 +232,13 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </p>
                 </div>
 
-                <div className="flex-shrink-0 group">
+                <motion.div 
+                  className="flex-shrink-0 group"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={sectionVariants}
+                >
                   <div className="relative">
                     <img
                       src={sphere}
@@ -252,7 +247,7 @@ const MyWorld = ({ isVisible, onClose }) => {
                       draggable="false"
                     />
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.section>
 

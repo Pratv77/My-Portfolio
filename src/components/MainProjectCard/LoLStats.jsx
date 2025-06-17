@@ -9,11 +9,11 @@ const LoLStats = ({ onBack }) => {
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -33,7 +33,7 @@ const LoLStats = ({ onBack }) => {
         </div>
       )}
 
-      <motion.div 
+      <motion.div
         className="space-y-4 text-center"
         initial="hidden"
         whileInView="visible"
@@ -43,28 +43,30 @@ const LoLStats = ({ onBack }) => {
         <h2 className="text-4xl font-bold">LoLStats</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
           <strong>LoLStats</strong> is an interactive League of Legends match
-          analysis tool that I built early in my web development journey. It uses
-          the Riot API to track summoner performance, visualize match history, and
-          display ranked statistics. Despite being one of my oldest projects, it
-          taught me the foundations of REST APIs, asynchronous JavaScript, and
-          structuring dynamic front-end data.
+          analysis tool that I built early in my web development journey. It
+          uses the Riot API to track summoner performance, visualize match
+          history, and display ranked statistics. Despite being one of my oldest
+          projects, it taught me the foundations of REST APIs, asynchronous
+          JavaScript, and structuring dynamic front-end data.
         </p>
         <div className="flex flex-wrap justify-center gap-2 text-sm text-neutral-300 mt-2 cursor-default">
-          {["HTML", "CSS", "JavaScript", "Riot Games API"].map((tech, index) => (
-            <span
-              key={index}
-              className="bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium"
-            >
-              {tech}
-            </span>
-          ))}
+          {["HTML", "CSS", "JavaScript", "Riot Games API"].map(
+            (tech, index) => (
+              <span
+                key={index}
+                className="bg-neutral-800 hover:bg-neutral-700 transition-colors duration-200 px-3 py-1 rounded-full font-medium"
+              >
+                {tech}
+              </span>
+            )
+          )}
         </div>
         <div className="flex justify-center gap-4">
           <button
             onClick={onBack}
-            className="bg-white hover:bg-gray-100 text-black font-medium py-2 px-6 rounded-lg transition"
+            className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
           >
-            ← Back to Projects
+            ← Back
           </button>
           <a
             href="https://github.com/Pratv77/LoLStats"
@@ -78,7 +80,7 @@ const LoLStats = ({ onBack }) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="grid md:grid-cols-2 gap-10 items-start"
         initial="hidden"
         whileInView="visible"
@@ -100,14 +102,14 @@ const LoLStats = ({ onBack }) => {
             both team compositions.
           </p>
           <p className="text-neutral-300 mt-4">
-            The app makes multiple Riot API calls under the hood and maps raw game
-            data to visual components using DOM manipulation and image asset
-            mapping.
+            The app makes multiple Riot API calls under the hood and maps raw
+            game data to visual components using DOM manipulation and image
+            asset mapping.
           </p>
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="text-center space-y-4"
         initial="hidden"
         whileInView="visible"
@@ -118,13 +120,19 @@ const LoLStats = ({ onBack }) => {
         <ul className="inline-block text-left list-disc text-neutral-300 pl-5 space-y-1">
           <li>5 recent matches fetched and rendered dynamically</li>
           <li>20 match IDs pulled via Riot's Match V5 API</li>
-          <li>3 Riot API endpoints integrated (Summoner, Ranked Stats, Match History)</li>
-          <li>30+ image assets mapped for champions, items, runes, and summoner spells</li>
+          <li>
+            3 Riot API endpoints integrated (Summoner, Ranked Stats, Match
+            History)
+          </li>
+          <li>
+            30+ image assets mapped for champions, items, runes, and summoner
+            spells
+          </li>
           <li>50+ DOM elements generated per match using raw JavaScript</li>
         </ul>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
@@ -135,9 +143,10 @@ const LoLStats = ({ onBack }) => {
           <h3 className="text-2xl font-semibold mb-2">What I Learned</h3>
           <p className="text-neutral-300">
             This was my first time working with APIs and rendering data
-            dynamically. I learned how to parse nested JSON, use query parameters,
-            and think through multi-step asynchronous flows. I also figured out
-            how to debug layout issues and write cleaner UI logic over time.
+            dynamically. I learned how to parse nested JSON, use query
+            parameters, and think through multi-step asynchronous flows. I also
+            figured out how to debug layout issues and write cleaner UI logic
+            over time.
           </p>
         </div>
         <img
@@ -147,16 +156,16 @@ const LoLStats = ({ onBack }) => {
         />
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={sectionVariants}
       >
-        <span className="font-semibold">Note:</span> This project was built before
-        I learned React or responsive design best practices. It's a snapshot of my
-        earliest coding phase.
+        <span className="font-semibold">Note:</span> This project was built
+        before I learned React or responsive design best practices. It's a
+        snapshot of my earliest coding phase.
       </motion.div>
     </div>
   );

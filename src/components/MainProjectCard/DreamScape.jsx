@@ -11,11 +11,11 @@ const DreamScape = ({ onBack }) => {
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -35,7 +35,7 @@ const DreamScape = ({ onBack }) => {
         </div>
       )}
 
-      <motion.div 
+      <motion.div
         className="space-y-4 text-center"
         initial="hidden"
         whileInView="visible"
@@ -73,9 +73,9 @@ const DreamScape = ({ onBack }) => {
         <div className="flex justify-center gap-4">
           <button
             onClick={onBack}
-            className="bg-white hover:bg-gray-100 text-black font-medium py-2 px-6 rounded-lg transition"
+            className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
           >
-            ← Back to Projects
+            ← Back
           </button>
           <a
             href="https://github.com/Pratv77/dreamscape"
@@ -98,7 +98,7 @@ const DreamScape = ({ onBack }) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
@@ -131,7 +131,7 @@ const DreamScape = ({ onBack }) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
@@ -167,7 +167,7 @@ const DreamScape = ({ onBack }) => {
         />
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
@@ -200,7 +200,7 @@ const DreamScape = ({ onBack }) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
@@ -237,7 +237,7 @@ const DreamScape = ({ onBack }) => {
         />
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="space-y-6"
         initial="hidden"
         whileInView="visible"
@@ -262,7 +262,7 @@ const DreamScape = ({ onBack }) => {
         </p>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="space-y-6"
         initial="hidden"
         whileInView="visible"
@@ -285,7 +285,7 @@ const DreamScape = ({ onBack }) => {
         </p>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="space-y-6"
         initial="hidden"
         whileInView="visible"
@@ -313,7 +313,7 @@ const DreamScape = ({ onBack }) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="space-y-6"
         initial="hidden"
         whileInView="visible"
