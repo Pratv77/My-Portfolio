@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import LoLStatsImage from "../../assets/lolstats.png";
 import LeagueLogo from "../../assets/league.png";
 import GitHubLogo from "../../assets/github.png";
 
 const LoLStats = ({ onBack }) => {
   const [enlargedImage, setEnlargedImage] = useState(null);
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
 
   return (
     <div className="text-white px-6 py-12 max-w-6xl mx-auto space-y-20 overflow-y-auto h-full relative">
@@ -23,7 +33,13 @@ const LoLStats = ({ onBack }) => {
         </div>
       )}
 
-      <div className="space-y-4 text-center">
+      <motion.div 
+        className="space-y-4 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <h2 className="text-4xl font-bold">LoLStats</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
           <strong>LoLStats</strong> is an interactive League of Legends match
@@ -60,9 +76,15 @@ const LoLStats = ({ onBack }) => {
             <img src={GitHubLogo} alt="GitHub" className="w-5 h-5" />
           </a>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-start">
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 items-start"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <img
           src={LoLStatsImage}
           alt="LoLStats screenshot"
@@ -83,9 +105,15 @@ const LoLStats = ({ onBack }) => {
             mapping.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="text-center space-y-4">
+      <motion.div 
+        className="text-center space-y-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <h3 className="text-2xl font-semibold">Project Statistics</h3>
         <ul className="inline-block text-left list-disc text-neutral-300 pl-5 space-y-1">
           <li>5 recent matches fetched and rendered dynamically</li>
@@ -94,9 +122,15 @@ const LoLStats = ({ onBack }) => {
           <li>30+ image assets mapped for champions, items, runes, and summoner spells</li>
           <li>50+ DOM elements generated per match using raw JavaScript</li>
         </ul>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <div>
           <h3 className="text-2xl font-semibold mb-2">What I Learned</h3>
           <p className="text-neutral-300">
@@ -111,13 +145,19 @@ const LoLStats = ({ onBack }) => {
           alt="League of Legends Developer"
           className="rounded-xl shadow-lg"
         />
-      </div>
+      </motion.div>
 
-      <div className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30">
+      <motion.div 
+        className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <span className="font-semibold">Note:</span> This project was built before
         I learned React or responsive design best practices. It's a snapshot of my
         earliest coding phase.
-      </div>
+      </motion.div>
     </div>
   );
 };

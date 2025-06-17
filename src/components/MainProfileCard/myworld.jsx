@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import aboutme from "../../assets/aboutme.png";
 import pcsetup from "../../assets/pcsetup.png";
 import mirrorpicture from "../../assets/me.png";
@@ -38,6 +39,16 @@ const MyWorld = ({ isVisible, onClose }) => {
   };
 
   const onMouseLeave = () => setRotate({ x: 0, y: 0 });
+
+  // Animation variants for sections
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
 
   if (!isRendering) return null;
 
@@ -81,7 +92,13 @@ const MyWorld = ({ isVisible, onClose }) => {
             </svg>
           </button>
 
-          <div className="flex justify-center mb-16">
+          <motion.div 
+            className="flex justify-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={sectionVariants}
+          >
             <div className="relative group transition-transform duration-300 ease-in-out">
               <img
                 src={aboutme}
@@ -89,10 +106,16 @@ const MyWorld = ({ isVisible, onClose }) => {
                 className="w-full max-w-lg h-auto object-contain rounded-xl shadow-2xl transform group-hover:scale-[1.02] transition duration-300 ease-in-out"
               />
             </div>
-          </div>
+          </motion.div>
 
           <div className="space-y-24 text-white">
-            <section className="space-y-6">
+            <motion.section 
+              className="space-y-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-400 bg-clip-text text-transparent mb-8">
                 Who I Am
               </h2>
@@ -142,9 +165,15 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="space-y-6">
+            <motion.section 
+              className="space-y-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-transparent">
                 What This Site Is
               </h2>
@@ -168,9 +197,15 @@ const MyWorld = ({ isVisible, onClose }) => {
                   new ideas and technologies I'm exploring.
                 </p>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="space-y-6">
+            <motion.section 
+              className="space-y-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
                 My Coding Journey
               </h2>
@@ -216,13 +251,18 @@ const MyWorld = ({ isVisible, onClose }) => {
                       className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 select-none pointer-events-none"
                       draggable="false"
                     />
-                    
                   </div>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="space-y-6">
+            <motion.section 
+              className="space-y-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
                 The World of Web3
               </h2>
@@ -240,22 +280,28 @@ const MyWorld = ({ isVisible, onClose }) => {
                   That said, Web3 is still early. High fees, complex interfaces,
                   and smart contract vulnerabilities are real challenges. Some
                   parts still rely on centralized systems, and that tension
-                  can’t be ignored. But even with its flaws, the idea of giving
+                  can't be ignored. But even with its flaws, the idea of giving
                   users direct control over their assets, identity, and data
                   still feels like the right direction.
                 </p>
                 <p className="text-gray-300">
-                  Most platforms today are built on trust you can’t verify. You
-                  hand over your info and just hope it’s handled right.
+                  Most platforms today are built on trust you can't verify. You
+                  hand over your info and just hope it's handled right.
                   Blockchain shifts that by making systems open, trackable, and
                   harder to manipulate. It <strong>respects the user</strong>{" "}
-                  instead of working around them. It’s not perfect yet, but it’s
-                  a space full of potential, and one I’m excited to grow with.
+                  instead of working around them. It's not perfect yet, but it's
+                  a space full of potential, and one I'm excited to grow with.
                 </p>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="space-y-8">
+            <motion.section 
+              className="space-y-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
                 What I'm Diving Into
               </h2>
@@ -300,9 +346,15 @@ const MyWorld = ({ isVisible, onClose }) => {
                 I'm excited to push these fields further and bring fresh ideas
                 to life.
               </p>
-            </section>
+            </motion.section>
 
-            <section className="space-y-6">
+            <motion.section 
+              className="space-y-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
                 My Interests
               </h2>
@@ -322,9 +374,15 @@ const MyWorld = ({ isVisible, onClose }) => {
                   going for walks, or getting in a solid workout now and then.
                 </p>
               </div>
-            </section>
+            </motion.section>
 
-            <section className="space-y-8">
+            <motion.section 
+              className="space-y-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={sectionVariants}
+            >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
                 My Setup
               </h2>
@@ -394,7 +452,7 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </div>
                 </div>
               </div>
-            </section>
+            </motion.section>
           </div>
         </div>
       </div>

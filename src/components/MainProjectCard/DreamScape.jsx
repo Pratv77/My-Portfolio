@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import DS1 from "../../assets/ds_1.png";
 import DS2 from "../../assets/ds_2.png";
 import DS3 from "../../assets/ds_3.png";
@@ -7,6 +8,15 @@ import GitHubLogo from "../../assets/github.png";
 
 const DreamScape = ({ onBack }) => {
   const [enlargedImage, setEnlargedImage] = useState(null);
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
 
   return (
     <div className="text-white px-6 py-12 max-w-6xl mx-auto space-y-16 overflow-y-auto h-full relative">
@@ -25,14 +35,20 @@ const DreamScape = ({ onBack }) => {
         </div>
       )}
 
-      <div className="space-y-4 text-center">
+      <motion.div 
+        className="space-y-4 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <h2 className="text-4xl font-bold">🌙 DreamScape</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
           <strong>DreamScape</strong> is an AI-powered dream interpretation app
           that I built with my team, Julius Henriques, Tejovardhan Nepala, and
           Jahangir Minhas, during <strong>DeerHacks IV 2025</strong>, a 36-hour
           hackathon hosted at the University of Toronto. The theme of the
-          hackathon was <em>“Discovery”</em>, and we built a tool that helps
+          hackathon was <em>"Discovery"</em>, and we built a tool that helps
           users understand themselves through their dreams. As a first-time
           hackathon experience, it couldn't have gone better, we won first
           place, and the project was featured in <em>The Medium</em>.
@@ -80,9 +96,15 @@ const DreamScape = ({ onBack }) => {
             🔗
           </a>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <img
           src={DS1}
           alt="Dream entry screen"
@@ -95,21 +117,27 @@ const DreamScape = ({ onBack }) => {
             The hackathon was a 3-day sprint, kicking off at 9pm Friday and
             wrapping up by 9am Sunday. It officially began once the theme{" "}
             <strong>Discovery</strong> was announced during the opening
-            ceremony. That could’ve meant anything from historical discoveries
+            ceremony. That could've meant anything from historical discoveries
             to geolocation tools, but we were drawn to self-discovery. <br />
             <br />
             One of our teammates, Tej, shared how his mom used to analyze her
             dreams, and that sparked our core idea: using AI to help people find
             insight through dreams. We kept asking ourselves, how can we make
             dream interpretation actually feel <em>meaningful</em>, instead of
-            just vague symbolism? That’s where the idea of structured, themed
+            just vague symbolism? That's where the idea of structured, themed
             interpretations came in: one emotional, one symbolic, and one
             actionable.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <div>
           <h3 className="text-2xl font-semibold mb-2">What It Does</h3>
           <p className="text-neutral-300">
@@ -137,9 +165,15 @@ const DreamScape = ({ onBack }) => {
           className="rounded-xl shadow-lg cursor-zoom-in"
           onClick={() => setEnlargedImage(DS2)}
         />
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <img
           src={DS3}
           alt="Interpretation scroll"
@@ -164,9 +198,15 @@ const DreamScape = ({ onBack }) => {
             <br />- <b>Voice Input:</b> Web Speech API
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <div>
           <h3 className="text-2xl font-semibold mb-2">
             We Got to Share Our Journey
@@ -195,9 +235,15 @@ const DreamScape = ({ onBack }) => {
           className="rounded-xl shadow-lg cursor-zoom-in"
           onClick={() => setEnlargedImage(DSArticle)}
         />
-      </div>
+      </motion.div>
 
-      <div className="space-y-6">
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <h3 className="text-2xl font-semibold">🙋‍♂️ My Role</h3>
         <p className="text-neutral-300">
           I designed and built the entire frontend from the ground up using
@@ -214,6 +260,15 @@ const DreamScape = ({ onBack }) => {
           the theme and that we delivered a complete, working MVP by the
           deadline.
         </p>
+      </motion.div>
+
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">💡 NLP and AI</h3>
         <p className="text-neutral-300">
@@ -228,6 +283,15 @@ const DreamScape = ({ onBack }) => {
           outputs, users get interpretations that actually feel connected to
           what they experienced.
         </p>
+      </motion.div>
+
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">The Outcome</h3>
         <p className="text-neutral-300">
@@ -247,7 +311,15 @@ const DreamScape = ({ onBack }) => {
           </span>{" "}
           for first place! ✨
         </div>
+      </motion.div>
 
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">What's Next</h3>
         <p className="text-neutral-300">
@@ -258,7 +330,7 @@ const DreamScape = ({ onBack }) => {
           help turn DreamScape into a more complete and meaningful tool for
           self-reflection.
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };

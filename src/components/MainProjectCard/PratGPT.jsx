@@ -1,9 +1,19 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import PratGPTDemo from "../../assets/pratgpt_demo.png";
 import GitHubLogo from "../../assets/github.png";
 
 const PratGPT = ({ onBack }) => {
   const [enlargedImage, setEnlargedImage] = useState(null);
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
 
   return (
     <div className="text-white px-6 py-12 max-w-6xl mx-auto space-y-16 overflow-y-auto h-full relative">
@@ -22,7 +32,13 @@ const PratGPT = ({ onBack }) => {
         </div>
       )}
 
-      <div className="space-y-4 text-center">
+      <motion.div 
+        className="space-y-4 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <h2 className="text-4xl font-bold">PratGPT Discord Bot</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
           PratGPT is a custom AI Discord bot that I built in 2023 using{" "}
@@ -60,18 +76,30 @@ const PratGPT = ({ onBack }) => {
             <img src={GitHubLogo} alt="GitHub" className="w-5 h-5" />
           </a>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid md:grid-cols-1 gap-10 items-center">
+      <motion.div 
+        className="grid md:grid-cols-1 gap-10 items-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <img
           src={PratGPTDemo}
           alt="Demo conversation"
           className="rounded-xl shadow-lg cursor-zoom-in"
           onClick={() => setEnlargedImage(PratGPTDemo)}
         />
-      </div>
+      </motion.div>
 
-      <div className="space-y-6">
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <h3 className="text-2xl font-semibold">⚙️ Features</h3>
         <ul className="list-disc text-neutral-300 pl-6 space-y-1">
           <li>AI simulation of any personality you define</li>
@@ -88,6 +116,15 @@ const PratGPT = ({ onBack }) => {
           flexible enough to act like a gamer, mentor, assistant, or a fictional
           character.
         </p>
+      </motion.div>
+
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">How It Works</h3>
         <p className="text-neutral-300">
@@ -114,6 +151,15 @@ const PratGPT = ({ onBack }) => {
           You can hardcode PratGPT's voice with your own slang, inside jokes, or
           custom catchphrases using prompt templates.
         </div>
+      </motion.div>
+
+      <motion.div 
+        className="space-y-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <hr className="border-t border-neutral-700 my-8" />
         <h3 className="text-2xl font-semibold">What I Took From This</h3>
         <p className="text-neutral-300">
@@ -128,11 +174,11 @@ const PratGPT = ({ onBack }) => {
           starting point that gave me the momentum to keep building and take on
           more creative projects.
         </p>
-      </div>
-      <div className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30 mt-4">
-        <span className="font-semibold">🎉 Fun Fact:</span> You can chat with
-        the upgraded version of this project live on this site. Say hi to PratGPT on the home screen!
-      </div>
+        <div className="bg-blue-500/20 text-blue-100 text-sm px-4 py-3 rounded-md max-w-fit mx-auto shadow-lg border border-blue-400/30 mt-4">
+          <span className="font-semibold">🎉 Fun Fact:</span> You can chat with
+          the upgraded version of this project live on this site. Say hi to PratGPT on the home screen!
+        </div>
+      </motion.div>
     </div>
   );
 };
