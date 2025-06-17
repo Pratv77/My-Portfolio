@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import aboutme from "../../assets/aboutme.png";
-import uoft from "../../assets/uoft.png";
 import pcsetup from "../../assets/pcsetup.png";
-import blockchain from "../../assets/blockchain.gif";
 import mirrorpicture from "../../assets/me.png";
+import sphere from "../../assets/asciisphere.gif";
 
 const MyWorld = ({ isVisible, onClose }) => {
   const [fadeIn, setFadeIn] = useState(false);
@@ -98,7 +97,7 @@ const MyWorld = ({ isVisible, onClose }) => {
                 Who I Am
               </h2>
               <div className="flex flex-col lg:flex-row items-start gap-8">
-                <div className="flex-1 space-y-4 text-base sm:text-lg leading-relaxed">
+                <div className="flex-1 space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6">
                   <p className="text-gray-200">
                     Hello again, if you missed it the first time, I'm{" "}
                     <strong>Pratham</strong>. I'm currently majoring in{" "}
@@ -149,7 +148,7 @@ const MyWorld = ({ isVisible, onClose }) => {
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-transparent">
                 What This Site Is
               </h2>
-              <div className="space-y-4 text-base sm:text-lg leading-relaxed">
+              <div className="space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-gray-500/30 pl-6">
                 <p className="text-gray-200">
                   This is my <strong>personal portfolio</strong>, a site I built
                   from scratch to track what I've been working on and learning.
@@ -167,6 +166,91 @@ const MyWorld = ({ isVisible, onClose }) => {
                   This site exists to showcase my work, document progress, and
                   reflect how I think and build. It's also a testing ground for
                   new ideas and technologies I'm exploring.
+                </p>
+              </div>
+            </section>
+
+            <section className="space-y-6">
+              <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
+                My Coding Journey
+              </h2>
+              <div className="flex flex-col lg:flex-row items-start gap-8">
+                <div className="flex-1 space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-green-500/30 pl-6">
+                  <p className="text-gray-200">
+                    I've been tech-savvy since childhood, always drawn to
+                    computers and naturally gravitating toward gaming. What
+                    started as casual play evolved into something deeper when I
+                    began modding games and finding ways around developer
+                    restrictions. This technical curiosity made coding feel like
+                    a natural next step.
+                  </p>
+                  <p className="text-gray-300">
+                    Before the age of ChatGPT and LLMs, I taught myself through{" "}
+                    <strong>YouTube tutorials</strong>,
+                    <strong> freeCodeCamp</strong>, and{" "}
+                    <strong>The Odin Project</strong>, building micro-projects
+                    to practice each skill. As I tackled more complex projects,
+                    I became deeply embedded in the developer community and
+                    discovered my passion for{" "}
+                    <span className="text-green-300 font-medium">ML/AI</span>{" "}
+                    and
+                    <span className="text-green-300 font-medium">
+                      {" "}
+                      Web3/blockchain
+                    </span>
+                    .
+                  </p>
+                  <p className="text-gray-300">
+                    Now, with solid frontend and backend skills, I'm focused on
+                    making the Web3 world more accessible through clean UIs and
+                    intuitive systems that bridge the gap between complex
+                    technology and everyday users.
+                  </p>
+                </div>
+
+                <div className="flex-shrink-0 group">
+                  <div className="relative">
+                    <img
+                      src={sphere}
+                      alt="ASCII Sphere Animation"
+                      className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 select-none pointer-events-none"
+                      draggable="false"
+                    />
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="space-y-6">
+              <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
+                The World of Web3
+              </h2>
+              <div className="space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-orange-500/30 pl-6">
+                <p className="text-gray-300">
+                  What draws me to Web3 is the <strong>shift in control</strong>
+                  . We're moving away from systems where we blindly trust
+                  companies to act fairly, toward a model where everything is
+                  transparent and verifiable. If a payment's owed, it goes
+                  through. If data is recorded, it stays there. No chasing
+                  support or dealing with "technical issues." It just works the
+                  way it's supposed to.
+                </p>
+                <p className="text-gray-300">
+                  That said, Web3 is still early. High fees, complex interfaces,
+                  and smart contract vulnerabilities are real challenges. Some
+                  parts still rely on centralized systems, and that tension
+                  can’t be ignored. But even with its flaws, the idea of giving
+                  users direct control over their assets, identity, and data
+                  still feels like the right direction.
+                </p>
+                <p className="text-gray-300">
+                  Most platforms today are built on trust you can’t verify. You
+                  hand over your info and just hope it’s handled right.
+                  Blockchain shifts that by making systems open, trackable, and
+                  harder to manipulate. It <strong>respects the user</strong>{" "}
+                  instead of working around them. It’s not perfect yet, but it’s
+                  a space full of potential, and one I’m excited to grow with.
                 </p>
               </div>
             </section>
@@ -222,24 +306,21 @@ const MyWorld = ({ isVisible, onClose }) => {
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
                 My Interests
               </h2>
-              <div className="space-y-4 text-sm sm:text-base lg:text-lg leading-relaxed">
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-yellow-900/15 to-amber-900/15 rounded-xl border border-yellow-500/20">
-                  <p className="text-gray-200">
-                    When I'm not working on something or studying, I'm usually
-                    reading, playing soccer, spending time with friends, or
-                    watching movies/shows/YouTube. I game casually and
-                    competitively, I've peaked at{" "}
-                    <span className="text-yellow-300 font-semibold px-2 py-1 bg-yellow-800/30 rounded">
-                      700LP Grandmaster
-                    </span>{" "}
-                    in League of Legends, and I'm a big fan of solo titles like{" "}
-                    <em className="text-gray-300">Red Dead Redemption 2</em> and{" "}
-                    <em className="text-gray-300">Ghost of Tsushima</em>. I also
-                    enjoy playing chess, and getting outside, whether it's
-                    biking, going for walks, or getting in a solid workout now
-                    and then.
-                  </p>
-                </div>
+              <div className="space-y-4 text-sm sm:text-base lg:text-lg leading-relaxed border-l-2 border-yellow-500/30 pl-6">
+                <p className="text-gray-200">
+                  When I'm not working on something or studying, I'm usually
+                  reading, playing soccer, spending time with friends, or
+                  watching movies/shows/YouTube. I game casually and
+                  competitively, I've peaked at{" "}
+                  <span className="text-yellow-300 font-semibold px-2 py-1 bg-yellow-800/30 rounded">
+                    700LP Grandmaster
+                  </span>{" "}
+                  in League of Legends, and I'm a big fan of solo titles like{" "}
+                  <em className="text-gray-300">Red Dead Redemption 2</em> and{" "}
+                  <em className="text-gray-300">Ghost of Tsushima</em>. I also
+                  enjoy playing chess, and getting outside, whether it's biking,
+                  going for walks, or getting in a solid workout now and then.
+                </p>
               </div>
             </section>
 
