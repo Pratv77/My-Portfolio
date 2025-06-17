@@ -11,7 +11,6 @@ const MainProfileCard = () => {
 
   return (
     <div className="relative h-full grid grid-cols-2 grid-rows-2 cursor-default border border-white/25 rounded-lg bg-transparent transition-colors duration-300">
-      {/* Profile Image */}
       <div className="row-span-1 grid place-content-center">
         <img
           className="w-[200px] p-2 transition-transform duration-300 hover:scale-110"
@@ -20,7 +19,6 @@ const MainProfileCard = () => {
         />
       </div>
 
-      {/* Age / Location / Education */}
       <div className="row-span-1 text-white grid place-content-center p-2 mt-4">
         <div>
           <p className="text-sm text-gray-500">Age</p>
@@ -42,7 +40,6 @@ const MainProfileCard = () => {
         </div>
       </div>
 
-      {/* Intro Section */}
       <div className="col-span-2 relative">
         <p className="text-gray-500 text-base min-[400px]:text-xl sm:text-2xl px-10 min-[400px]:px-12 mt-2 lg:px-14 2xl:ml-8">
           I'm{" "}
