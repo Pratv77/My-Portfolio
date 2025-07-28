@@ -42,11 +42,11 @@ const MyWorld = ({ isVisible, onClose }) => {
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   if (!isRendering) return null;
@@ -102,9 +102,7 @@ const MyWorld = ({ isVisible, onClose }) => {
           </div>
 
           <div className="space-y-24 text-white">
-            <section 
-              className="space-y-6"
-            >
+            <section className="space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-400 bg-clip-text text-transparent mb-8">
                 Who I Am
               </h2>
@@ -156,11 +154,11 @@ const MyWorld = ({ isVisible, onClose }) => {
               </div>
             </section>
 
-            <motion.section 
+            <motion.section
               className="space-y-6"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.22 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-transparent">
@@ -188,11 +186,11 @@ const MyWorld = ({ isVisible, onClose }) => {
               </div>
             </motion.section>
 
-            <motion.section 
+            <motion.section
               className="space-y-6"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.22 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
@@ -232,11 +230,11 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </p>
                 </div>
 
-                <motion.div 
+                <motion.div
                   className="flex-shrink-0 group"
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.22 }}
                   variants={sectionVariants}
                 >
                   <div className="relative">
@@ -251,11 +249,11 @@ const MyWorld = ({ isVisible, onClose }) => {
               </div>
             </motion.section>
 
-            <motion.section 
+            <motion.section
               className="space-y-6"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.22 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
@@ -290,11 +288,11 @@ const MyWorld = ({ isVisible, onClose }) => {
               </div>
             </motion.section>
 
-            <motion.section 
+            <motion.section
               className="space-y-8"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.22 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
@@ -343,11 +341,11 @@ const MyWorld = ({ isVisible, onClose }) => {
               </p>
             </motion.section>
 
-            <motion.section 
+            <motion.section
               className="space-y-6"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.22 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
@@ -359,23 +357,36 @@ const MyWorld = ({ isVisible, onClose }) => {
                   reading, playing soccer, spending time with friends, or
                   watching movies/shows/YouTube. I game casually and
                   competitively, I've peaked at{" "}
-                  <span className="text-yellow-300 font-semibold px-2 py-1 bg-yellow-800/30 rounded">
+                  <span className="text-yellow-300 font-semibold">
                     700LP Grandmaster
                   </span>{" "}
                   in League of Legends, and I'm a big fan of solo titles like{" "}
                   <em className="text-gray-300">Red Dead Redemption 2</em> and{" "}
-                  <em className="text-gray-300">Ghost of Tsushima</em>. I also
-                  enjoy playing chess, and getting outside, whether it's biking,
-                  going for walks, or getting in a solid workout now and then.
+                  <em className="text-gray-300">Ghost of Tsushima</em>.
+                </p>
+                <p className="text-gray-200">
+                  I also love the{" "}
+                  <em className="text-gray-300">Harry Potter</em> books, and
+                  lately I’ve been more drawn to nonfiction, books like{" "}
+                  <em className="text-gray-300">The Psychology of Money</em> or{" "}
+                  <em className="text-gray-300">The Marshmallow Test</em> really
+                  interest me. It’s fun being able to draw direct connections
+                  between what I’m reading and the decisions or patterns I
+                  notice in my own experiences.
+                </p>
+                <p className="text-gray-200">
+                  I also enjoy playing chess, and getting outside, whether it's
+                  biking, going for walks, or getting in a solid workout now and
+                  then.
                 </p>
               </div>
             </motion.section>
 
-            <motion.section 
+            <motion.section
               className="space-y-8"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.22 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">

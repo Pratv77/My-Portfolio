@@ -48,7 +48,7 @@ const MainProfileCard = () => {
           </span>
           , a front-end developer specializing in React and exploring Web3
           tools. I focus on clean builds and solving real problems with tech.
-          Check out{" "}
+          Learn more here{" "}
           <span className="relative inline-block align-middle">
             <div
               className={`absolute w-32 h-32 -top-12 -left-12 rounded-full transition-opacity duration-300 pointer-events-none z-0 ${
@@ -87,7 +87,7 @@ const MainProfileCard = () => {
                 }`}
                 style={{ fontFamily: "'Press Start 2P', monospace" }}
               >
-                My World
+                About Me
               </div>
             </div>
           </span>

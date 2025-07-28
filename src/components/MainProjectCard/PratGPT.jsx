@@ -148,7 +148,7 @@ const PratGPT = ({ onBack }) => {
           <span className="font-semibold">
             🧠 Fully Programmable Personality:
           </span>{" "}
-          You can hardcode PratGPT's voice with your own slang, inside jokes, or
+          You can hardcode PratGPT with your own slang, inside jokes, or
           custom catchphrases using prompt templates.
         </div>
       </motion.div>
