@@ -32,10 +32,10 @@ const MainProjectCard = () => {
   const rotateX = isHovering ? 0 : deltaY * 0.0035;
   const rotateY = isHovering ? 0 : -deltaX * 0.0035;
 
-  // Determine image zoom based on screen width
+
   let baseScale = 1.02;
   if (screenWidth >= 1024 && screenWidth < 1360) {
-    baseScale = 0.94; // slightly zoomed out in this range
+    baseScale = 0.94;
   }
 
   let backgroundScale = baseScale;

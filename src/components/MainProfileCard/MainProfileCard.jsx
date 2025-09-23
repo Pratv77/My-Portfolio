@@ -10,7 +10,7 @@ const MainProfileCard = () => {
   const ageText = calculateAge(new Date("2002-07-02"));
 
   return (
-    <div className="relative h-full grid grid-cols-2 grid-rows-2 cursor-default border border-white/25 rounded-lg bg-transparent transition-colors duration-300">
+    <div className="relative h-full grid grid-cols-2 grid-rows-2 grid-rows-[auto_auto] cursor-default border border-white/25 rounded-lg bg-transparent transition-colors duration-300">
       <div className="row-span-1 grid place-content-center">
         <img
           className="w-[200px] p-2 transition-transform duration-300 hover:scale-110"
