@@ -6,6 +6,8 @@ import githubIcon from "../../assets/github.png";
 import DreamScape from "../../components/MainProjectCard/DreamScape";
 import PratGPT from "../../components/MainProjectCard/PratGPT";
 import LoLStats from "../../components/MainProjectCard/LoLStats";
+import clickboardHero from "../../assets/clickboard_demo_1.png";
+import ClickBoard from "../../components/MainProjectCard/ClickBoard";
 
 const ProjectsOverlay = ({ isVisible, onClose }) => {
   const [fadeIn, setFadeIn] = useState(false);
@@ -31,7 +33,7 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
       document.body.style.overflow = "";
     };
   }, [isVisible]);
-  
+
   useEffect(() => {
     if (selectedProject !== null) {
       setTimeout(() => {
@@ -48,6 +50,8 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
         return <PratGPT onBack={() => setSelectedProject(null)} />;
       case "lolstats":
         return <LoLStats onBack={() => setSelectedProject(null)} />;
+      case "clickboard":
+        return <ClickBoard onBack={() => setSelectedProject(null)} />;
       default:
         return null;
     }
@@ -109,6 +113,56 @@ const ProjectsOverlay = ({ isVisible, onClose }) => {
         <div className="flex-1 overflow-y-auto p-6">
           {selectedProject === null ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div
+                onClick={() => setSelectedProject("clickboard")}
+                className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer max-w-sm mx-auto p-4 flex flex-col gap-4"
+              >
+                <div className="rounded-xl overflow-hidden">
+                  <img
+                    src={clickboardHero}
+                    alt="ClickBoard"
+                    className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="flex-1 flex flex-col justify-between relative">
+                  <div>
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-white text-lg font-semibold tracking-tight">
+                        ClickBoard Chrome Extension
+                      </h3>
+                      <span className="text-xs text-neutral-500">2025</span>
+                    </div>
+                    <p className="text-sm text-neutral-400 leading-snug">
+                      Clipboard manager with a draggable, resizable
+                      toolbar for saving up to 10 text snippets and instant one-click
+                      copying.
+                    </p>
+                  </div>
+                  <div className="flex justify-end mt-4 gap-3 text-neutral-500">
+                    <a
+                      href="https://chromewebstore.google.com/detail/clickboard/pfnpcegnlffchgdgncoohlealddiikde"
+                      onClick={(e) => e.stopPropagation()}
+                      className="hover:text-white transition"
+                      title="Chrome Web Store"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      🔗
+                    </a>
+                    <a
+                      href="https://github.com/Pratv77/ClickBoard-Chrome-Extension"
+                      onClick={(e) => e.stopPropagation()}
+                      className="hover:text-white transition"
+                      title="GitHub"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={githubIcon} alt="GitHub" className="w-5 h-5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <div
                 onClick={() => setSelectedProject("dreamscape")}
                 className="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer max-w-sm mx-auto p-4 flex flex-col gap-4"

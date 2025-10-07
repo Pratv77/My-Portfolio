@@ -41,7 +41,7 @@ const PratGPT = ({ onBack }) => {
       >
         <h2 className="text-4xl font-bold">PratGPT Discord Bot</h2>
         <p className="text-neutral-300 max-w-3xl mx-auto">
-          PratGPT is a custom AI Discord bot that I built in 2023 using{" "}
+          <strong>PratGPT</strong> is a custom AI Discord bot that I built in 2023 using{" "}
           <strong>discord.js</strong> and the <strong>OpenAI API</strong>. It
           was a personal project to help me practice integrating third-party
           APIs and experiment with AI behavior customization. Despite being
