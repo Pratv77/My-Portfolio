@@ -148,8 +148,8 @@ const ClickBoard = ({ onBack }) => {
             packaged it as a Manifest V3 Chrome Extension. The goal was to
             balance flexibility with simplicity so it felt like a small built-in
             utility rather than another app.
-          </p>
-          <p className="text-neutral-300">
+            <br />
+            <br />
             Throughout development, I focused on creating smooth and reliable
             interactions. I implemented debounced storage writes to improve
             performance, added resize guards for better control, adjusted
@@ -170,7 +170,8 @@ const ClickBoard = ({ onBack }) => {
           <h3 className="text-2xl font-semibold mb-2">Common Use Cases</h3>
           <ul className="list-disc pl-5 text-neutral-300 space-y-1">
             <li>
-              <strong>Job seekers:</strong> keep your LinkedIn, GitHub, and portfolio links ready to paste
+              <strong>Job seekers:</strong> keep your LinkedIn, GitHub, and
+              portfolio links ready to paste
             </li>
             <li>
               <strong>Developers:</strong> tiny code snippets or API keys (local
@@ -253,8 +254,9 @@ const ClickBoard = ({ onBack }) => {
           <li>Better debugging habits for content scripts and overlays</li>
         </ul>
         <p className="text-neutral-300">
-          Most of all, I saw how a focused utility can remove a daily annoyance
-          and make work feel smoother.
+          Most of all, I realized how much impact a simple, focused tool can
+          have when it just works. It reminded me that solving a real annoyance
+          cleanly is often more satisfying than adding complex features.
         </p>
       </motion.div>
     </div>
