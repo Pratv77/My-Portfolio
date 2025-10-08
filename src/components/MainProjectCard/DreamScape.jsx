@@ -297,7 +297,7 @@ const DreamScape = ({ onBack }) => {
         <p className="text-neutral-300">
           - First Place at DeerHacks IV 2025
           <br />
-          - Featured in The Medium
+          - Featured in <i>The Medium</i>
           <br />
           - Functional AI + Voice + UI in under 36 hours
           <br />
