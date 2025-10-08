@@ -78,15 +78,6 @@ const DreamScape = ({ onBack }) => {
             ← Back
           </button>
           <a
-            href="https://github.com/Pratv77/dreamscape"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-lg transition"
-            title="GitHub"
-          >
-            <img src={GitHubLogo} alt="GitHub" className="w-5 h-5" />
-          </a>
-          <a
             href="https://devpost.com/software/dreamspace"
             target="_blank"
             rel="noopener noreferrer"
@@ -94,6 +85,15 @@ const DreamScape = ({ onBack }) => {
             title="DevPost"
           >
             🔗
+          </a>
+          <a
+            href="https://github.com/Pratv77/dreamscape"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-lg transition"
+            title="GitHub"
+          >
+            <img src={GitHubLogo} alt="GitHub" className="w-5 h-5" />
           </a>
         </div>
       </motion.div>

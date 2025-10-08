@@ -77,15 +77,6 @@ const ClickBoard = ({ onBack }) => {
             ← Back
           </button>
           <a
-            href="https://github.com/Pratv77/ClickBoard-Chrome-Extension"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-lg transition"
-            title="GitHub"
-          >
-            <img src={GitHubLogo} alt="GitHub" className="w-5 h-5" />
-          </a>
-          <a
             href="https://chromewebstore.google.com/detail/clickboard/pfnpcegnlffchgdgncoohlealddiikde"
             target="_blank"
             rel="noopener noreferrer"
@@ -93,6 +84,15 @@ const ClickBoard = ({ onBack }) => {
             title="Chrome Web Store"
           >
             🔗
+          </a>
+          <a
+            href="https://github.com/Pratv77/ClickBoard-Chrome-Extension"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-lg transition"
+            title="GitHub"
+          >
+            <img src={GitHubLogo} alt="GitHub" className="w-5 h-5" />
           </a>
         </div>
       </motion.div>
