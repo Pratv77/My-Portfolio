@@ -174,8 +174,7 @@ const ClickBoard = ({ onBack }) => {
               portfolio links ready to paste
             </li>
             <li>
-              <strong>Developers:</strong> tiny code snippets or API keys (local
-              only)
+              <strong>Developers:</strong> tiny code snippets or API keys
             </li>
             <li>
               <strong>Students:</strong> study notes, references, citations
