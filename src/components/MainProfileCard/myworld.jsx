@@ -174,14 +174,13 @@ const MyWorld = ({ isVisible, onClose }) => {
                     </span>
                     , but now just waiting for{" "}
                     <span className="text-purple-300">GTA 6</span>. I also like
-                    to read, bouncing between fiction and nonfiction, lately
-                    I've been more drawn to books like{" "}
+                    to read, bouncing between fiction and nonfiction, recently started{" "}
                     <span className="text-rose-300">
-                      The Things You Can See Only When You Slow Down
+                      Catch 22
                     </span>{" "}
                     by{" "}
-                    <span className="italic text-gray-400">Haemin Sunim</span>,
-                    the kind of read that shows you perspective.
+                    <span className="italic text-gray-400">Joseph Heller</span>.
+                    
                   </p>
                 </div>
 
@@ -215,13 +214,6 @@ const MyWorld = ({ isVisible, onClose }) => {
               </h2>
               <div className="flex flex-col lg:flex-row items-start gap-8">
                 <div className="flex-1 space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-green-500/30 pl-6">
-                  <p className="text-gray-200">
-                    Growing up I had the best time gaming on our family
-                    computer, what started as casual play evolved into something
-                    deeper when I began modding games and finding ways around
-                    developer restrictions. This technical curiosity made coding
-                    feel like a natural next step.
-                  </p>
                   <p className="text-gray-300">
                     Before the age of LLMs, I taught myself through{" "}
                     <strong>YouTube</strong> tutorials,{" "}
@@ -255,10 +247,10 @@ const MyWorld = ({ isVisible, onClose }) => {
                     >
                       OpenAI powered Discord bot
                     </a>
-                    , and so on. Each project pushed me further than the last
+                    , and so on. Each project pushed me further than the last,
                     and that's how I built the confidence to tackle more
-                    complicated challenges. Which also got me to pick a real
-                    stack to create my ideas.
+                    complicated challenges and eventually commit to a real
+                    stack.
                   </p>
 
                   <p className="text-gray-300">
@@ -277,9 +269,9 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </p>
 
                   <p className="text-gray-300">
-                    The further I went the more I started gravitating toward the{" "}
-                    data side of things. Web3 is still a space I follow and find
-                    interesting, but I kept finding myself more drawn to
+                    The further I went, the more I started gravitating toward
+                    the data side of things. Web3 is still a space I follow and
+                    find interesting, but I kept finding myself more drawn to
                     questions about people, behavior, patterns in how humans
                     think and act.{" "}
                     <span className="text-blue-300">Data science</span> felt
@@ -371,7 +363,9 @@ const MyWorld = ({ isVisible, onClose }) => {
                     </div>
                     <div className="flex flex-col xs:flex-row xs:justify-between">
                       <span className="text-gray-500">Keyboard:</span>
-                      <span className="text-gray-200">Keychron K8 Wireless</span>
+                      <span className="text-gray-200">
+                        Keychron K8 Wireless
+                      </span>
                     </div>
                     <div className="flex flex-col xs:flex-row xs:justify-between">
                       <span className="text-gray-500">Mouse:</span>
