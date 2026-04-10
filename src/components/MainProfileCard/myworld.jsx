@@ -4,11 +4,14 @@ import aboutme from "../../assets/aboutme.png";
 import pcsetup from "../../assets/pcsetup.png";
 import mirrorpicture from "../../assets/me.png";
 import sphere from "../../assets/asciisphere.gif";
+import challenger from "../../assets/challenger_logo.png";
+import uoft from "../../assets/uoft.png";
 
 const MyWorld = ({ isVisible, onClose }) => {
   const [fadeIn, setFadeIn] = useState(false);
   const [isRendering, setIsRendering] = useState(false);
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [enlargedImage, setEnlargedImage] = useState(null);
 
   useEffect(() => {
     if (isVisible) {
@@ -57,6 +60,20 @@ const MyWorld = ({ isVisible, onClose }) => {
         fadeIn ? "opacity-100" : "opacity-0"
       }`}
     >
+      {enlargedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-[60] cursor-zoom-out"
+          onClick={() => setEnlargedImage(null)}
+        >
+          <div className="max-w-full max-h-[90vh] overflow-auto px-4">
+            <img
+              src={enlargedImage}
+              alt="Enlarged"
+              className="mx-auto h-auto w-auto max-h-[90vh] rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      )}
       <div
         className="absolute inset-0 bg-black/95 backdrop-blur-sm"
         onClick={onClose}
@@ -91,7 +108,7 @@ const MyWorld = ({ isVisible, onClose }) => {
             </svg>
           </button>
 
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center items-center gap-6 mb-16">
             <div className="relative group transition-transform duration-300 ease-in-out">
               <img
                 src={aboutme}
@@ -99,6 +116,11 @@ const MyWorld = ({ isVisible, onClose }) => {
                 className="w-full max-w-lg h-auto object-contain rounded-xl shadow-2xl transform group-hover:scale-[1.02] transition duration-300 ease-in-out"
               />
             </div>
+            <img
+              src={mirrorpicture}
+              alt="Pratham"
+              className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full object-cover shadow-2xl ring-2 ring-blue-500/30 flex-shrink-0"
+            />
           </div>
 
           <div className="space-y-24 text-white">
@@ -109,45 +131,72 @@ const MyWorld = ({ isVisible, onClose }) => {
               <div className="flex flex-col lg:flex-row items-start gap-8">
                 <div className="flex-1 space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6">
                   <p className="text-gray-200">
-                    Hello again, if you missed it the first time, I'm{" "}
-                    <strong>Pratham</strong>. I'm currently majoring in{" "}
+                    I'm <strong>Pratham</strong>, a{" "}
                     <span className="text-blue-300 font-medium">
                       Psychology
                     </span>{" "}
-                    with minors in{" "}
+                    major with minors in{" "}
                     <span className="text-blue-300 font-medium">
-                      Computer Science
+                      Statistics
                     </span>{" "}
                     and{" "}
                     <span className="text-blue-300 font-medium">
-                      Statistics
+                      Mathematical Sciences
                     </span>{" "}
                     at the University of Toronto.
                   </p>
                   <p className="text-gray-300">
-                    I've always had a strong curiosity for how and why things
-                    work. <strong>Psychology</strong> lets me explore behavior
-                    and decision-making, while <strong>Computer Science</strong>{" "}
-                    gives me the tools to build and solve problems logically.{" "}
-                    <strong>Statistics</strong> ties them together because in a
-                    world driven by data, knowing how to interpret and use it is
-                    essential.
+                    <strong>Psychology</strong> is the scientific study of the
+                    mind and behavior. The deeper I got into it, the more I
+                    wanted to go beyond theory and actually measure those
+                    patterns in real data. Things like why people make certain
+                    decisions, how emotions influence memory, what drives
+                    behavior in predictable ways. That's what drew me toward
+                    <strong> behavioral data science</strong>, where
+                    understanding why people think and act the way they do meets
+                    the tools to find meaning in it at scale.
                   </p>
                   <p className="text-gray-300">
-                    These disciplines push me to think critically, stay
-                    analytical, and keep learning. I'm particularly drawn to the
-                    fast-paced world of tech, and I love staying up to date with
-                    coding trends, especially those related to AI. I'm always
-                    trying to learn more, build smarter, and keep an open mind.
+                    Outside of academics I stay pretty active. I go to the gym
+                    regularly, recently started training Brazilian Jiu-Jitsu,
+                    and try to get outside as much as I can whether that's going
+                    for walks, playing sports (mainly soccer/golf), or just
+                    spending time with friends. Gaming is definitely a big hobby
+                    of mine too, I peaked{" "}
+                    <span className="text-yellow-400 font-semibold">
+                      1245LP Challenger
+                    </span>{" "}
+                    in{" "}
+                    <span className="text-purple-300">League of Legends</span>,
+                    love playing games like{" "}
+                    <span className="text-purple-300">
+                      Red Dead Redemption 1/2
+                    </span>
+                    , but now just waiting for{" "}
+                    <span className="text-purple-300">GTA 6</span>. I also like
+                    to read, bouncing between fiction and nonfiction, lately
+                    I've been more drawn to books like{" "}
+                    <span className="text-rose-300">
+                      The Things You Can See Only When You Slow Down
+                    </span>{" "}
+                    by{" "}
+                    <span className="italic text-gray-400">Haemin Sunim</span>,
+                    the kind of read that shows you perspective.
                   </p>
                 </div>
 
                 <div className="flex-shrink-0">
-                  <div className="relative">
+                  <div className="flex flex-row lg:flex-col items-center gap-6">
                     <img
-                      src={mirrorpicture}
-                      alt="Pratham"
-                      className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full object-cover shadow-2xl ring-2 ring-blue-500/30 animate-float"
+                      src={uoft}
+                      alt="University of Toronto"
+                      className="w-32 sm:w-40 lg:w-56 h-auto"
+                    />
+                    <img
+                      src={challenger}
+                      alt="Promoted to Challenger"
+                      className="w-32 sm:w-40 lg:w-72 h-auto rounded-xl shadow-2xl border border-yellow-500/20 cursor-zoom-in"
+                      onClick={() => setEnlargedImage(challenger)}
                     />
                   </div>
                 </div>
@@ -158,39 +207,7 @@ const MyWorld = ({ isVisible, onClose }) => {
               className="space-y-6"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-300 to-gray-200 bg-clip-text text-transparent">
-                What This Site Is
-              </h2>
-              <div className="space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-gray-500/30 pl-6">
-                <p className="text-gray-200">
-                  This is my <strong>personal portfolio</strong>, a site I built
-                  from scratch to track what I've been working on and learning.
-                  Built with <strong>React</strong> and styled with modern
-                  design principles, it's completely <strong>responsive</strong>{" "}
-                  and optimized for performance.
-                </p>
-                <p className="text-gray-300">
-                  It's a central hub for my projects, experience, and
-                  experiments. I'm always improving it, adding new features
-                  whenever I come across something cool online that I want to
-                  implement or try to recreate.
-                </p>
-                <p className="text-gray-300">
-                  This site exists to showcase my work, document progress, and
-                  reflect how I think and build. It's also a testing ground for
-                  new ideas and technologies I'm exploring.
-                </p>
-              </div>
-            </motion.section>
-
-            <motion.section
-              className="space-y-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
+              viewport={{ once: true, amount: 0.1 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
@@ -199,34 +216,77 @@ const MyWorld = ({ isVisible, onClose }) => {
               <div className="flex flex-col lg:flex-row items-start gap-8">
                 <div className="flex-1 space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-green-500/30 pl-6">
                   <p className="text-gray-200">
-                    I've been tech-savvy since childhood, always drawn to
-                    computers and naturally gravitating toward gaming. What
-                    started as casual play evolved into something deeper when I
-                    began modding games and finding ways around developer
-                    restrictions. This technical curiosity made coding feel like
-                    a natural next step.
+                    Growing up I had the best time gaming on our family
+                    computer, what started as casual play evolved into something
+                    deeper when I began modding games and finding ways around
+                    developer restrictions. This technical curiosity made coding
+                    feel like a natural next step.
                   </p>
                   <p className="text-gray-300">
-                    Before the age of ChatGPT and LLMs, I taught myself through{" "}
-                    <strong>YouTube tutorials</strong>,
-                    <strong> freeCodeCamp</strong>, and{" "}
-                    <strong>The Odin Project</strong>, building micro-projects
-                    to practice each skill. As I tackled more complex projects,
-                    I became deeply embedded in the developer community and
-                    discovered my passion for{" "}
-                    <span className="text-green-300 font-medium">ML/AI</span>{" "}
-                    and
-                    <span className="text-green-300 font-medium">
-                      {" "}
-                      Web3/blockchain
-                    </span>
-                    .
+                    Before the age of LLMs, I taught myself through{" "}
+                    <strong>YouTube</strong> tutorials,{" "}
+                    <strong>freeCodeCamp</strong>, and{" "}
+                    <strong>The Odin Project</strong>. I started with small
+                    projects and gradually built up to more complex ones. Began
+                    with HTML/CSS/JS so I first made a{" "}
+                    <a
+                      href="https://github.com/Pratv77/WeatherApp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 underline hover:text-cyan-200 transition-colors"
+                    >
+                      weather app
+                    </a>
+                    , then a{" "}
+                    <a
+                      href="https://github.com/Pratv77/LoLStats"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 underline hover:text-cyan-200 transition-colors"
+                    >
+                      League of Legends statistics tracker
+                    </a>
+                    , then an{" "}
+                    <a
+                      href="https://github.com/Pratv77/PratGPT--DB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 underline hover:text-cyan-200 transition-colors"
+                    >
+                      OpenAI powered Discord bot
+                    </a>
+                    , and so on. Each project pushed me further than the last
+                    and that's how I built the confidence to tackle more
+                    complicated challenges. Which also got me to pick a real
+                    stack to create my ideas.
                   </p>
+
                   <p className="text-gray-300">
-                    Now, with solid frontend and backend skills, I'm focused on
-                    making the Web3 world more accessible through clean UIs and
-                    intuitive systems that bridge the gap between complex
-                    technology and everyday users.
+                    From there I got pulled into the{" "}
+                    <span className="text-emerald-400">Web3</span> and{" "}
+                    <span className="text-emerald-400">Blockchain</span> space.
+                    The idea of decentralized systems, smart contracts that
+                    execute without a middleman, applications that don't rely on
+                    a company to function, it all felt like genuinely new
+                    territory worth understanding. I did a cohort-based{" "}
+                    <strong>Solidity</strong> bootcamp, built and deployed real
+                    smart contracts on <strong>Ethereum</strong>, and shipped
+                    decentralized applications with a team. It was a different
+                    way of thinking about how software could work and I learned
+                    a lot from it.
+                  </p>
+
+                  <p className="text-gray-300">
+                    The further I went the more I started gravitating toward the{" "}
+                    data side of things. Web3 is still a space I follow and find
+                    interesting, but I kept finding myself more drawn to
+                    questions about people, behavior, patterns in how humans
+                    think and act.{" "}
+                    <span className="text-blue-300">Data science</span> felt
+                    like the right tools to actually answer those questions, and
+                    between that and everything I was already studying in
+                    psychology, the direction became pretty clear. That's where
+                    I'm building now.
                   </p>
                 </div>
 
@@ -234,7 +294,7 @@ const MyWorld = ({ isVisible, onClose }) => {
                   className="flex-shrink-0 group"
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.22 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   variants={sectionVariants}
                 >
                   <div className="relative">
@@ -250,143 +310,10 @@ const MyWorld = ({ isVisible, onClose }) => {
             </motion.section>
 
             <motion.section
-              className="space-y-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
-                The World of Web3
-              </h2>
-              <div className="space-y-4 text-base sm:text-lg leading-relaxed border-l-2 border-orange-500/30 pl-6">
-                <p className="text-gray-300">
-                  What draws me to Web3 is the <strong>shift in control</strong>
-                  . We're moving away from systems where we blindly trust
-                  companies to act fairly, toward a model where everything is
-                  transparent and verifiable. If a payment's owed, it goes
-                  through. If data is recorded, it stays there. No chasing
-                  support or dealing with "technical issues." It just works the
-                  way it's supposed to.
-                </p>
-                <p className="text-gray-300">
-                  That said, Web3 is still early. High fees, complex interfaces,
-                  and smart contract vulnerabilities are real challenges. Some
-                  parts still rely on centralized systems, and that tension
-                  can't be ignored. But even with its flaws, the idea of giving
-                  users direct control over their assets, identity, and data
-                  still feels like the right direction.
-                </p>
-                <p className="text-gray-300">
-                  Most platforms today are built on trust you can't verify. You
-                  hand over your info and just hope it's handled right.
-                  Blockchain shifts that by making systems open, trackable, and
-                  harder to manipulate. It <strong>respects the user</strong>{" "}
-                  instead of working around them. It's not perfect yet, but it's
-                  a space full of potential, and one I'm excited to grow with.
-                </p>
-              </div>
-            </motion.section>
-
-            <motion.section
               className="space-y-8"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
-                What I'm Diving Into
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200 text-sm sm:text-base lg:text-lg leading-relaxed">
-                      AI-powered web experiences, like dynamic interfaces that
-                      adapt to users
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200 text-sm sm:text-base lg:text-lg leading-relaxed">
-                      Clean, responsive frontend design with smooth animations
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200 text-sm sm:text-base lg:text-lg leading-relaxed">
-                      Smart contracts for secure, real-world blockchain
-                      applications
-                    </p>
-                  </div>
-                </div>
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-xl border border-orange-500/20 hover:border-orange-400/40 transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200 text-sm sm:text-base lg:text-lg leading-relaxed">
-                      Machine learning to build data-driven systems that solve
-                      complex problems
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <p className="text-gray-300 text-sm sm:text-base lg:text-lg italic text-center">
-                I'm excited to push these fields further and bring fresh ideas
-                to life.
-              </p>
-            </motion.section>
-
-            <motion.section
-              className="space-y-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
-                My Interests
-              </h2>
-              <div className="space-y-4 text-sm sm:text-base lg:text-lg leading-relaxed border-l-2 border-yellow-500/30 pl-6">
-                <p className="text-gray-200">
-                  When I'm not working on something or studying, I'm usually
-                  reading, playing soccer, spending time with friends, or
-                  watching movies/shows/YouTube. I game casually and
-                  competitively, I've peaked at{" "}
-                  <span className="text-yellow-300 font-semibold">
-                    700LP Grandmaster
-                  </span>{" "}
-                  in League of Legends, and I'm a big fan of solo titles like{" "}
-                  <em className="text-gray-300">Red Dead Redemption 2</em> and{" "}
-                  <em className="text-gray-300">Ghost of Tsushima</em>.
-                </p>
-                <p className="text-gray-200">
-                  I also love the{" "}
-                  <em className="text-gray-300">Harry Potter</em> books, and
-                  lately I’ve been more drawn to nonfiction, books like{" "}
-                  <em className="text-gray-300">The Psychology of Money</em> or{" "}
-                  <em className="text-gray-300">The Marshmallow Test</em> really
-                  interest me. It’s fun being able to draw direct connections
-                  between what I’m reading and the decisions or patterns I
-                  notice in my own experiences.
-                </p>
-                <p className="text-gray-200">
-                  I also enjoy playing chess, and getting outside, whether it's
-                  biking, going for walks, or getting in a solid workout now and
-                  then.
-                </p>
-              </div>
-            </motion.section>
-
-            <motion.section
-              className="space-y-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.22 }}
+              viewport={{ once: true, amount: 0.1 }}
               variants={sectionVariants}
             >
               <h2 className="text-2xl pb-[4px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
@@ -438,12 +365,13 @@ const MyWorld = ({ isVisible, onClose }) => {
                     <div className="flex flex-col xs:flex-row xs:justify-between">
                       <span className="text-gray-500">Monitors:</span>
                       <span className="text-gray-200">
-                        (L) 27″ MSI G27C4 + (R) 24″ Odyssey G3
+                        (L) 24″ KOORUI E2411K + (M) 27″ MSI G27C4 + (R) 24″
+                        Odyssey G3
                       </span>
                     </div>
                     <div className="flex flex-col xs:flex-row xs:justify-between">
                       <span className="text-gray-500">Keyboard:</span>
-                      <span className="text-gray-200">Ducky One 2 Mini</span>
+                      <span className="text-gray-200">Keychron K8 Wireless</span>
                     </div>
                     <div className="flex flex-col xs:flex-row xs:justify-between">
                       <span className="text-gray-500">Mouse:</span>

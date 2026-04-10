@@ -4,6 +4,7 @@ import Tooltip from "./tooltip.jsx";
 import VivaldiLogo from "../../assets/Tech Stack Logos/Vivaldi.png";
 import vscode from "../../assets/Tech Stack Logos/VSCode.png";
 import openai from "../../assets/Tech Stack Logos/Openai.png";
+import anytype from "../../assets/Tech Stack Logos/anytype.png";
 import notion from "../../assets/Tech Stack Logos/Notion.png";
 import github from "../../assets/Tech Stack Logos/Github.png";
 import gimplogo from "../../assets/Tech Stack Logos/GIMPLogo.png";
@@ -86,10 +87,10 @@ const TechStackCard = () => {
             label="OpenAI/Sora"
           />
           <Item
-            message="Notion"
-            src={notion}
-            alt="Notion Logo"
-            label="Notion"
+            message="Anytype"
+            src={anytype}
+            alt="Anytype Logo"
+            label="Anytype"
           />
           <Item
             message="GitHub"
