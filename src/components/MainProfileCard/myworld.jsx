@@ -158,11 +158,10 @@ const MyWorld = ({ isVisible, onClose }) => {
                   </p>
                   <p className="text-gray-300">
                     Outside of academics I stay pretty active. I go to the gym
-                    regularly, recently started training Brazilian Jiu-Jitsu,
-                    and try to get outside as much as I can whether that's going
-                    for walks, playing sports (mainly soccer/golf), or just
-                    spending time with friends. Gaming is definitely a big hobby
-                    of mine too, I peaked{" "}
+                    regularly and try to get outside as much as I can whether
+                    that's going for walks, playing sports (mainly soccer/golf),
+                    or just spending time with friends. Gaming is definitely a
+                    big hobby of mine too, I peaked{" "}
                     <span className="text-yellow-400 font-semibold">
                       1245LP Challenger
                     </span>{" "}
@@ -174,13 +173,9 @@ const MyWorld = ({ isVisible, onClose }) => {
                     </span>
                     , but now just waiting for{" "}
                     <span className="text-purple-300">GTA 6</span>. I also like
-                    to read, bouncing between fiction and nonfiction, recently started{" "}
-                    <span className="text-rose-300">
-                      Catch 22
-                    </span>{" "}
-                    by{" "}
+                    to read, bouncing between fiction and nonfiction, recently
+                    started <span className="text-rose-300">Catch 22</span> by{" "}
                     <span className="italic text-gray-400">Joseph Heller</span>.
-                    
                   </p>
                 </div>
 
