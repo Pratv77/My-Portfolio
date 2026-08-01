@@ -5,8 +5,6 @@
 
 Welcome to the source code of my personal portfolio! 🎉 This is where I showcase my skills, interests, and projects. It's a constantly evolving project, and I'm excited to share how my skills improve over time. (NOTE: I've cancelled my API billing for Prat#GPT so the chatbot is currently offline but the functional code is still viewable in this repository)
 
-[Back to top](#prathams-personal-portfolio-)
-
 ---
 
 ## Built With
